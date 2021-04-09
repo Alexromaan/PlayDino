@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <tittle>Registro</tittle>
+</head>
+<body>
+
+    <div class="container main-front login-container-top-padding">
+       
+        <div id="subcontainer" class="columns is-centered login-container login-form">
+            <div class="column has-text-centered login-box-style">
+                {% if error %}
+                    <div class="login-error mr-top-30 bounce">La contraseña o usuario son incorrectos!</div>
+                {% endif %}
+
+                <form action=""method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="button" type="submit">registro</button>
+                </form>
+                 
+            </div>
+        </div>
+    </div>
+</body>
