@@ -3,24 +3,61 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
-class CustomUserCreationForm(UserCreationForm):   
-        username = UsernameField(
+
+class CustomUserCreationForm(UserCreationForm):
+    username = UsernameField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre de Usuario'})
     )
-        first_name = forms.CharField(
+    first_name = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre'})
     )
-        last_name = forms.CharField(
+    last_name = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Apellidos'})
     )
-        email = forms.EmailField( 
-            widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'email'})
-        )
-        password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
-        password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Confirmar Contraseña'}))
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'email'})
+    )
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Confirmar Contraseña'}))
+
 
 class LoginForm(AuthenticationForm):
     username = UsernameField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre de Usuario'})
     )
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'password'}))
+
+
+class UpdateUser(forms.Form):
+    username = UsernameField(
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre de Usuario'})
+    )
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre'})
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Apellidos'})
+    )
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'email'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
+
+
+class AñadirSerie(forms.Form):
+    name = forms.Charfield(
+        widget=forms.TextInput(attrs={'required': 'True', 'class': 'input', 'placeholder': 'Título'}))
+
+    platform = forms.Charfield(
+        widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Plataforma'}))
+
+    image = forms.ImageField(
+        widget=forms.ImageField(attrs={'class': 'input', 'placeholder': 'Puedes añadir una imagen'}))
+
+    season = forms.Charfield(
+        widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Temporada'}))
+
+    chapter = forms.Charfield(
+        widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Capítulo'}))
