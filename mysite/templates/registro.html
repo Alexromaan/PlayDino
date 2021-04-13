@@ -1,27 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <tittle>Registro</tittle>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+    Registro
+{% endblock %}
 
-    <div class="container main-front login-container-top-padding">
-       
-        <div id="subcontainer" class="columns is-centered login-container login-form">
-            <div class="column has-text-centered login-box-style">
-                {% if error %}
-                    <div class="login-error mr-top-30 bounce">La contraseña o usuario son incorrectos!</div>
-                {% endif %}
-
-                <form action=""method="post">
+{% block content %}
+    <div class="container">
+        <div class="columns is-mobile">
+            <div class="column is-half is-offset-one-quarter">
+                <h3 class="title is-size-3">REGISTRATE</h3>
+                <h4 class="tittle is-size-4">A CONTINUACION PODRÁS REGISTRARTE<h4>
+                 <form  method="post">
                     {% csrf_token %}
-                    {{form}}
-                    <button class="button" type="submit">registro</button>
+                    {% for non_field_error in form.non_field_errors %}
+                        <p class="help is-danger">{{ non_field_error }}</p>
+                    {% endfor %}
+                    {% for field in form %}
+                        <div class="field">
+                            <label for="{{ field.id_for_label }}" class="label"></label>
+                            {{ field }}
+                        {% for error in field.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="button is-primary is-large is-fullwidth">REGISTRARME</button>
                 </form>
-                 
             </div>
         </div>
     </div>
-</body>
+
+{% endblock %}
