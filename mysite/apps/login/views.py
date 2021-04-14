@@ -5,16 +5,22 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 from django.urls import reverse
 from .forms import CustomUserCreationForm, LoginForm
+from django.contrib.auth import authenticate, login, logout
 
-def login(request):
+
+def mainlogin(request):
     data = {
-        'form' : LoginForm(),
+        'form': LoginForm(),
     }
     if request.method == 'POST':
-
         formulario = LoginForm(data=request.POST)
-        data['form'] = formulario
-    #mainpage return render(request, 'mainpage:.html', data)
+        if formulario.is_valid():
+            user = authenticate(username=formulario.cleaned_data['username'],
+                                password=formulario.cleaned_data['password'])
+            login(request, user)
+            return render(request, 'base.html')
+    return render(request, 'login.html', data)
+
 
 def logout_home(request):
     logout(request)
@@ -23,15 +29,16 @@ def logout_home(request):
 
 def RegistroUsuario(request):
     data = {
-        'form' : CustomUserCreationForm(),
+        'form': CustomUserCreationForm(),
     }
     if request.method == 'POST':
 
         formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
+            user = authenticate(username=formulario.cleaned_data['username'],
+                                password=formulario.cleaned_data['password1'])
             login(request, user)
-            return redirect(to='login')
+            return render(request, 'base.html')
         data['form'] = formulario
     return render(request, 'registro.html', data)
