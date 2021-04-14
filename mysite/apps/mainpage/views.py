@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from mysite.apps.login.forms import UpdateUser, AñadirSerie
+from mysite.apps.login.forms import UpdateUser, AddSerie
 
 from .models import Series
 

@@ -45,8 +45,8 @@ class UpdateUser(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
 
-
-class AñadirSerie(forms.Form):
+#este formulario falla
+class AddSerie(forms.Form):
     name = forms.Charfield(
         widget=forms.TextInput(attrs={'required': 'True', 'class': 'input', 'placeholder': 'Título'}))
 

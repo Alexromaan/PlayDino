@@ -8,25 +8,23 @@ from .forms import CustomUserCreationForm, LoginForm
 
 
 def mainlogin(request):
-    if request.method == 'GET':
-        if not request.user.is_authenticated:
-            return render(request, 'login/login.html')
-
-        if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse('mainpage:inicio'))
-
     data = {
         'form': LoginForm(),
     }
     if request.method == 'POST':
         formulario = LoginForm(data=request.POST)
-        data['form'] = formulario
+        if formulario.is_valid():
+            user = authenticate(username=formulario.cleaned_data['username'],
+                                password=formulario.cleaned_data['password'])
+            login(request, user)
+            return render(request, 'base.html')
     return render(request, 'login.html', data)
 
 
 def logout_home(request):
     logout(request)
-    return HttpResponseRedirect(reverse('login:mainlogin'))
+    #esta linea hay que arreglarla
+    return HttpResponseRedirect(reverse('login:login'))
 
 
 def RegistroUsuario(request):
@@ -41,6 +39,6 @@ def RegistroUsuario(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password1'])
             login(request, user)
-            return redirect(to='login')
+            return render(request, 'base.html')
         data['form'] = formulario
     return render(request, 'registro.html', data)
