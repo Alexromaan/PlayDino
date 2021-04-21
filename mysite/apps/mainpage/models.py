@@ -6,13 +6,14 @@ class Permissions:
     ADD_SERIES = 'Edit client'
     DELETE_SERIES = 'Delete Series'
 
+
 class Series(models.Model):
-    id = models.AutoField(primary_key=True, on_delete ='CASCADE')
-    name = models.Charfield(max_length=255)
-    platform = models.Charfield(max_lenght=255)
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    platform = models.CharField(max_length=100)
     image = models.ImageField(upload_to='media_pictures')
-    season = models.Charfield(max_lenght=255)
-    chapter = models.Charfield(max_lenght=255)
+    season = models.CharField(max_length=100)
+    chapter = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name

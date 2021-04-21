@@ -47,17 +47,17 @@ class UpdateUser(forms.Form):
 
 #este formulario falla
 class AddSerie(forms.Form):
-    name = forms.Charfield(
+    name = forms.CharField(
         widget=forms.TextInput(attrs={'required': 'True', 'class': 'input', 'placeholder': 'Título'}))
 
-    platform = forms.Charfield(
+    platform = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Plataforma'}))
 
     image = forms.ImageField(
-        widget=forms.ImageField(attrs={'class': 'input', 'placeholder': 'Puedes añadir una imagen'}))
+        widget=forms.ImageField())
 
-    season = forms.Charfield(
+    season = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Temporada'}))
 
-    chapter = forms.Charfield(
+    chapter = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Capítulo'}))

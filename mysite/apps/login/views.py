@@ -17,14 +17,14 @@ def mainlogin(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password'])
             login(request, user)
-            return render(request, 'base.html')
-    return render(request, 'login.html', data)
+            return render(request, 'login/base.html')
+    return render(request, 'login/login.html', data)
 
 
 def logout_home(request):
     logout(request)
     #esta linea hay que arreglarla
-    return HttpResponseRedirect(reverse('login:login'))
+    return HttpResponseRedirect(reverse('login/login'))
 
 
 def RegistroUsuario(request):
@@ -39,6 +39,6 @@ def RegistroUsuario(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password1'])
             login(request, user)
-            return render(request, 'base.html')
+            return render(request, 'login/base.html')
         data['form'] = formulario
-    return render(request, 'registro.html', data)
+    return render(request, 'login/registro.html', data)
