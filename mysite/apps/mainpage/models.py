@@ -17,13 +17,3 @@ class Series(models.Model):
 
     def __str__(self):
         return self.name
-
-    def create_series(name: str, platform: str, image: image = None, season: str = None, chapter: str = None):
-        series = Series(
-            name=name,
-            platform=platform,
-            image=image,
-            season=season,
-            chapter=chapter,
-        )
-        return series

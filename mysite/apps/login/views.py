@@ -17,7 +17,7 @@ def mainlogin(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password'])
             login(request, user)
-            return render(request, 'mainpage/mainpage_base.html')
+            return HttpResponseRedirect(reverse('mainpage:inicio'))
     return render(request, 'login/login.html', data)
 
 

@@ -26,7 +26,7 @@ class LoginForm(AuthenticationForm):
     username = UsernameField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre de Usuario'})
     )
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'password'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
 
 
 class UpdateUser(forms.Form):
@@ -40,21 +40,19 @@ class UpdateUser(forms.Form):
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Apellidos'})
     )
     email = forms.EmailField(
-        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'email'})
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Email'})
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
 
-#este formulario falla
+
+
 class AddSerie(forms.Form):
     name = forms.CharField(
         widget=forms.TextInput(attrs={'required': 'True', 'class': 'input', 'placeholder': 'Título'}))
 
     platform = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Plataforma'}))
-
-    image = forms.ImageField(
-        widget=forms.ImageField())
 
     season = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Temporada'}))
