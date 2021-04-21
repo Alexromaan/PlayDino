@@ -4,6 +4,7 @@ app_name = 'login'
 
 urlpatterns = [
     path('', views.mainlogin, name='mainlogin'),
-    path('desconectar', views.logout_home, name='disconnect'),
-    path('registro', views.RegistroUsuario, name='registro')]
+    path('desconectar', views.logout_home, name='logout'),
+    path('registro', views.RegistroUsuario, name='registro'),
+]
 
