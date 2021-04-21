@@ -39,6 +39,6 @@ def RegistroUsuario(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password1'])
             login(request, user)
-            return render(request, 'login/base.html')
+            return HttpResponseRedirect(reverse('login:mainlogin'))
         data['form'] = formulario
     return render(request, 'login/registro.html', data)
