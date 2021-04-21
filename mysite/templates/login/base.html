@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar">
     <div class="navbar-brand">
-        <a href="/" class="navbar-item">
+        <a class="navbar-item">
             <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
         </a>
         <div class="navbar-burger burger" data-target="nav-data">
@@ -21,13 +21,13 @@
         </div>
     </div>
         <div class="navbar-menu" id="nav-data">
-            <a href={% url 'login:mainlogin'%} class="navbar-item">Home</a>
+            <a href={% url 'login:mainlogin' %} class="navbar-item">Home</a>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field is-grouped">
                         <p class="control">
                             <a href="{% url 'login:mainlogin' %}" class="button is-primary">
-                                <span>SIGN UP</span>
+                                <span>INICIAR SESION</span>
                             </a>
                              <a href="{% url 'login:registro' %}" class="button is-primary">
                                 <span>REGISTRATE</span>
@@ -45,6 +45,5 @@
 
 {%  endblock %}
 </body>
-
 </html>
 

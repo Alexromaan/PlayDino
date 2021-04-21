@@ -1,11 +1,10 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
 # Create your views here.
 from django.urls import reverse
 from .forms import CustomUserCreationForm, LoginForm
-from django.contrib.auth import authenticate, login, logout
 
 
 def mainlogin(request):
@@ -18,13 +17,14 @@ def mainlogin(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password'])
             login(request, user)
-            return render(request, 'base.html')
-    return render(request, 'login.html', data)
+            return HttpResponseRedirect(reverse('mainpage:inicio'))
+    return render(request, 'login/login.html', data)
 
 
 def logout_home(request):
     logout(request)
-    return HttpResponseRedirect(reverse('login:login'))
+    #esta linea hay que arreglarla
+    return HttpResponseRedirect(reverse('login:mainlogin'))
 
 
 def RegistroUsuario(request):
@@ -39,6 +39,6 @@ def RegistroUsuario(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password1'])
             login(request, user)
-            return render(request, 'base.html')
+            return render(request, 'login/base.html')
         data['form'] = formulario
-    return render(request, 'registro.html', data)
+    return render(request, 'login/registro.html', data)
