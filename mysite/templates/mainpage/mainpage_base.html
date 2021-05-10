@@ -23,8 +23,8 @@
     </div>
         <div class="navbar-menu" id="nav-data">
             <a href={% url 'mainpage:inicio'%} class="navbar-item">Home</a>
-            <a href={% url 'mainpage:series'%} class="navbar-item">Series</a>
             <a href={% url 'mainpage:perfil'%} class="navbar-item">Perfil</a>
+            <a href={% url 'mainpage:series'%} class="navbar-item">Añadir Series</a>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field is-grouped">
@@ -46,4 +46,16 @@
 {%  endblock %}
 </body>
 
+<footer class="footer" style="position:fixed; bottom:0px; width:100%;">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
 </html>
+
+

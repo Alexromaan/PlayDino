@@ -20,10 +20,9 @@ def mainlogin(request):
             return HttpResponseRedirect(reverse('mainpage:inicio'))
     return render(request, 'login/login.html', data)
 
-
+#parece que funciona
 def logout_home(request):
     logout(request)
-    #esta linea hay que arreglarla
     return HttpResponseRedirect(reverse('login:mainlogin'))
 
 
@@ -42,3 +41,6 @@ def RegistroUsuario(request):
             return HttpResponseRedirect(reverse('login:mainlogin'))
         data['form'] = formulario
     return render(request, 'login/registro.html', data)
+
+def MostrarUsuario(request):
+    return render(request, 'mainpage/perfil.html')

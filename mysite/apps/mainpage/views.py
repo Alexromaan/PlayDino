@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from .models import Series
-from apps.login.forms import AddSerie
+from apps.login.forms import AddSerie, UpdateUser
 
 
 # Create your views here.
