@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
-    <script src="{% static 'js/navbar-burger.js' %}"><a class="{% if request.path == url_suggestions %}is-active{% endif %} navbar-item"
-                href="{{ url_changelog }}"><i class="fas fa-bug margin-right-10"></i>Cambios en la Plataforma</a></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>

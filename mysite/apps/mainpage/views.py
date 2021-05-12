@@ -11,16 +11,20 @@ from apps.login.forms import AddSerie, UpdateUser
 def inicio(request):
     return render(request, 'mainpage/mainpage_base.html')
 
-#MIRAR ESTE METODO
+
 @login_required(login_url=reverse_lazy('login:mainlogin'))
 def perfil(request):
-    form = UpdateUser()
-    meta = list(request.user.filter())
-    user_data: {
-        'form': form,
-        'meta': meta,
+    data = {
+        'form': UpdateUser(),
     }
-    return render(request, 'mainpage/perfil.html', user_data)
+    if request.method == 'POST':
+        formulation = UpdateUser(data=request.POST)
+        if formulation.is_valid():
+            formulation.save(),
+            return redirect(to='mainpage:perfil')
+        data['form'] = formulation
+    return render(request, 'mainpage/perfil.html', data)
+
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
 def add_series(request):

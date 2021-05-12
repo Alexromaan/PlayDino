@@ -11,7 +11,6 @@ class Series(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     platform = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='media_pictures')
     season = models.CharField(max_length=100)
     chapter = models.CharField(max_length=100)
 
