@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/views.py" afterDir="false" />
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="hecho el footer y solucionado algunas partes de diseño">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/login/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/series.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/series.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +65,27 @@
       <updated>1619031651720</updated>
       <workItem from="1619031653351" duration="668000" />
       <workItem from="1619033314383" duration="50000" />
+      <workItem from="1620847884236" duration="2060000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hecho el footer y solucionado algunas partes de diseño" />
+    <option name="LAST_COMMIT_MESSAGE" value="hecho el footer y solucionado algunas partes de diseño" />
   </component>
 </project>
