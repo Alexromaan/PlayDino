@@ -15,7 +15,7 @@ class Series(models.Model):
     platform = models.CharField(max_length=100)
     season = models.CharField(max_length=100)
     chapter = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='static/media', default='static/media/default.png')
+    image = models.ImageField(upload_to='static/media', default='default.png')
 
     def __str__(self):
         return self.name
