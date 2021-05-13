@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="hecho el footer y solucionado algunas partes de diseño">
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="cambios generales">
+      <change afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/default.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/login/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/login/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/login/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/series.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/series.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +24,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1rUXTZRutqEtrNVBgo375q3g3pl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -25,10 +39,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/apps" />
+      <recent name="$PROJECT_DIR$/apps/login/static/media" />
+      <recent name="$PROJECT_DIR$/apps/login/static" />
+      <recent name="$PROJECT_DIR$/static/media" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="mysite" type="Python.DjangoServer" factoryName="Django server">
@@ -65,8 +89,35 @@
       <updated>1619031651720</updated>
       <workItem from="1619031653351" duration="668000" />
       <workItem from="1619033314383" duration="50000" />
-      <workItem from="1620847884236" duration="2060000" />
+      <workItem from="1620847884236" duration="2478000" />
+      <workItem from="1620851087594" duration="7745000" />
+      <workItem from="1620892461745" duration="979000" />
+      <workItem from="1620895180928" duration="21324000" />
+      <workItem from="1620921903667" duration="63000" />
+      <workItem from="1620922032254" duration="304000" />
     </task>
+    <task id="LOCAL-00001" summary="css">
+      <created>1620850879366</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620850879366</updated>
+    </task>
+    <task id="LOCAL-00002" summary="faltaba el block content en base.html">
+      <created>1620853801500</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620853801500</updated>
+    </task>
+    <task id="LOCAL-00003" summary="cambios generales">
+      <created>1620860470115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620860470116</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,6 +137,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hecho el footer y solucionado algunas partes de diseño" />
-    <option name="LAST_COMMIT_MESSAGE" value="hecho el footer y solucionado algunas partes de diseño" />
+    <MESSAGE value="css" />
+    <MESSAGE value="faltaba el block content en base.html" />
+    <MESSAGE value="cambios generales" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios generales" />
   </component>
 </project>

@@ -5,11 +5,11 @@
 
 {% block content %}
     <div class="container">
-        <div class="columns is-mobile">
+        <div class="columns is-mobile" style="margin-bottom: 15%; margin-top: 30px">
             <div class="column is-half is-offset-one-quarter" style="margin-top: 50px">
                 <h3 class="title is-size-3">NUEVA SERIE</h3>
                 <h4 class="tittle is-size-5">RELLENA LOS SIGUIENTES CAMPOS PARA AÑADIR UNA SERIE</h4>
-                 <form  method="post">
+                 <form  method="post" enctype="multipart/form-data" action="{% url 'mainpage:series' %}">
                     {% csrf_token %}
                     {% for non_field_error in form.non_field_errors %}
                         <p class="help is-danger">{{ non_field_error }}</p>

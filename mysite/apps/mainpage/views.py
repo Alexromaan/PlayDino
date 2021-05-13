@@ -9,7 +9,10 @@ from apps.login.forms import AddSerie, UpdateUser
 # Create your views here.
 @login_required(login_url=reverse_lazy('login:mainlogin'))
 def inicio(request):
-    return render(request, 'mainpage/mainpage_base.html')
+    usuario = request.user
+    series = Series.objects.filter(user=usuario)
+    context = {'series': series}
+    return render(request, 'mainpage/inicio.html', context)
 
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
@@ -32,15 +35,18 @@ def add_series(request):
         'form': AddSerie(),
     }
     if request.method == 'POST':
-        formulary = AddSerie(data=request.POST)
+        formulary = AddSerie(request.POST, request.FILES)
         if formulary.is_valid():
             nueva_serie = Series(
                 name=formulary.cleaned_data['name'],
                 platform=formulary.cleaned_data['platform'],
                 season=formulary.cleaned_data['season'],
                 chapter=formulary.cleaned_data['chapter'],
+                user=request.user,
+                image=formulary.cleaned_data['image'],
             )
             nueva_serie.save()
             return redirect(to='mainpage:inicio')
         data['form'] = formulary
     return render(request, 'mainpage/series.html', data)
+
