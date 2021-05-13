@@ -41,6 +41,3 @@ def RegistroUsuario(request):
             return HttpResponseRedirect(reverse('login:mainlogin'))
         data['form'] = formulario
     return render(request, 'login/registro.html', data)
-
-def MostrarUsuario(request):
-    return render(request, 'mainpage/perfil.html')
