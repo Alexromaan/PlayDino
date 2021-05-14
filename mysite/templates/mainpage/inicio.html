@@ -1,4 +1,5 @@
 {% extends 'mainpage/mainpage_base.html' %}
+{% load static %}
 {% block title %}
     Home
 {% endblock %}
@@ -27,11 +28,10 @@
               <p><strong>Plataforma:&nbsp;</strong>{{ serie.platform }}</p>
               <br/>
 
-              <button class="button is-primary">edit</button>
-              <button class="button is-danger">delete</button>
+              <form action="editar/ {{ serie.id }}"><button type="submit" class="button button is-primary">Editar</button></form>
+              <button type="button" class="button is-danger">Eliminar</button>
           </div>
       {% endfor %}
   </div>
 </div>
-
 {% endblock %}
