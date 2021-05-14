@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from .models import Series
+from .models import Series, EditSerie
 from apps.login.forms import AddSerie, UpdateUser
 
 
@@ -52,8 +52,34 @@ def add_series(request):
 
 
 def delete(request, pk):
-    serie = Series.objects.filter(id=pk)
+    serie = Series.objects.get(id=pk)
     if request.method == 'POST':
         serie.delete()
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/delete.html', {'serie': serie})
+
+def edit(request, pk):
+    serie = Series.objects.get(id=pk)
+    data = {
+        'form': AddSerie(),
+        'name': serie.name,
+        'chapter': serie.chapter,
+        'season':serie.season,
+        'plataform':serie.platform,
+        'image':serie.image
+    }
+    if request.method == 'POST':
+        formulary = AddSerie(request.POST, request.FILES)
+        if formulary.is_valid():
+            nueva_serie = Series(
+                name=formulary.cleaned_data['name'],
+                platform=formulary.cleaned_data['platform'],
+                season=formulary.cleaned_data['season'],
+                chapter=formulary.cleaned_data['chapter'],
+                user=request.user,
+                image=serie.image,
+                id=serie.id,
+            )
+            nueva_serie.save()
+        return redirect(to='mainpage:inicio')
+    return render(request, 'mainpage/edit.html', data)

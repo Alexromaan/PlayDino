@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
+from django.forms import ModelForm
 
 
 class Permissions:
@@ -21,4 +21,9 @@ class Series(models.Model):
     image = models.ImageField(upload_to='static/media', default='default.png')
 
     def __str__(self):
-        return self.id
+        return self.name
+
+
+class EditSerie(ModelForm):
+    model = Series
+    fields = ['name','platform','season','chapter','image']

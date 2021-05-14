@@ -7,7 +7,7 @@
             <div class="column">
                 <form method="post">
                     {% csrf_token %}
-                    <h1>¿Desea eliminar el registro??</h1>
+                    <h1>¿Desea eliminar {{ serie.name }}?</h1>
                     <div style="padding-left: 40%">
                         <button type="submit" class="button is-danger">CONFIRMAR</button>
                         <a class="button" href="{% url 'mainpage:inicio' %}">Volver a Inicio</a>

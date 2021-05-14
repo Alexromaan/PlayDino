@@ -8,26 +8,23 @@
     <div class="container" style="background-color: #00d1b2; padding-bottom: 1px">
         <div class="columns is-mobile" style="margin-bottom: 10%; margin-top: 30px">
             <div class="column is-half is-offset-one-quarter" style="margin-top: 50px">
-                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">NUEVA SERIE</h3>
-                <h4 class="tittle is-size-5" style="text-align: center; color: rgb(0, 0, 0) ">RELLENA LOS SIGUIENTES CAMPOS PARA AÑADIR UNA SERIE</h4>
-                 <form  method="post" enctype="multipart/form-data" action="{% url 'mainpage:series' %}">
+                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAS VISTO NUEVOS CAPÍTULOS? ANÓTALO AQUI DEBAJO</h3>
+                 <form name="f1" id="f1" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for non_field_error in form.non_field_errors %}
                         <p class="help is-danger">{{ non_field_error }}</p>
                     {% endfor %}
-                    {% for field in form %}
                         <div class="field">
-                            <label for="{{ field.id_for_label }}" class="label"></label>
-                            {{ field }}
+                            <input type="text" name="chapter" class="input" placeholder="Capítulo" id="id_chapter">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="season" class="input" placeholder="Temporada" id="id_season">
+                        </div>
                         {% for error in field.errors %}
                             <p class="help is-danger">{{ error }}</p>
                         {% endfor %}
-
-                        </div>
-                    {% endfor %}
-                     <p style="color: white; text-align: center"><strong>¿Quieres añadir una portada?  haz click en "seleccionar archivo"</strong></p>
-                        <br/>
-                     <button type="submit" class="button is-large is-fullwidth">AÑADIR</button>
+                     <br/>
+                     <button type="submit" class="button is-large is-fullwidth">Confirmar Cambios</button>
 
                 </form>
             </div>
@@ -41,5 +38,6 @@
     min-width: 100%;
 }
 </style>
+
 
 {% endblock %}

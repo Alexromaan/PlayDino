@@ -28,7 +28,7 @@
               <p><strong>Plataforma:&nbsp;</strong>{{ serie.platform }}</p>
               <br/>
 
-              <a class="button is-primary">Editar</a>
+              <a href="{% url 'mainpage:editar' serie.id %}" class="button is-primary">Editar</a>
               <a href="{% url 'mainpage:eliminado' serie.id %}" class="button is-danger">Eliminar</a>
           </div>
       {% endfor %}

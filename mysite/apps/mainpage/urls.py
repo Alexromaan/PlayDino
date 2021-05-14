@@ -8,4 +8,5 @@ urlpatterns = [
     path('series/', views.add_series, name='series'),
     path('perfil/', views.perfil, name='perfil'),
     path('delete/<int:pk>', views.delete, name='eliminado'),
+    path('edit/<int:pk>', views.edit, name='editar'),
 ]

@@ -2,13 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="cambios generales">
-      <change afterPath="$PROJECT_DIR$/templates/mainpage/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mainpage/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/502ce612623e76f1026986ea0d249b7d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/5a579a439538462e5a82d44c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/Unknown.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/Unknown.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/Unknown_I2fhSaS.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/Unknown_Yiu7KR0.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/crying.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/crying_yJ9n1O9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/tostadita.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/series.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/series.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +105,7 @@
       <workItem from="1620922596037" duration="1090000" />
       <workItem from="1620928425733" duration="26000" />
       <workItem from="1620939251713" duration="4539000" />
-      <workItem from="1620982782991" duration="16566000" />
+      <workItem from="1620982782991" duration="21938000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>
