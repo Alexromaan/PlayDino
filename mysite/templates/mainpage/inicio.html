@@ -1,0 +1,37 @@
+{% extends 'mainpage/mainpage_base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+  <!-- Hero Section -->
+        <section class="intro">
+            <div class="column">
+                <h1>Bienvenido {{ user }}</h1>
+                <h3>A medida que vayas añadiendo contenido desde el menú de arriba, la irás viendo reflejada en esta página</h3>
+            </div>
+        </section>
+  <!-- Stats Gallery Section -->
+    <div class="gallery">
+
+    {% csrf_token %}
+      {% for serie in series %}
+          <div class="thumbnail">
+              <a><img src="{{ serie.image }}"  alt="portada" class="cards"/></a>
+              <br/>
+              <p class="tag">{{serie.name}}</p>
+
+              <p><strong>Capítulo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ serie.chapter }}</p>
+              <p><strong>Temporada:&nbsp;</strong>{{ serie.season }}</p>
+              <p><strong>Plataforma:&nbsp;</strong>{{ serie.platform }}</p>
+              <br/>
+
+              <a href="{% url 'mainpage:editar' serie.id %}" class="button is-primary">Editar</a>
+              <a href="{% url 'mainpage:eliminado' serie.id %}" class="button is-danger">Eliminar</a>
+          </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

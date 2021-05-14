@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -20,10 +20,9 @@ def mainlogin(request):
             return HttpResponseRedirect(reverse('mainpage:inicio'))
     return render(request, 'login/login.html', data)
 
-
+#parece que funciona
 def logout_home(request):
     logout(request)
-    #esta linea hay que arreglarla
     return HttpResponseRedirect(reverse('login:mainlogin'))
 
 
