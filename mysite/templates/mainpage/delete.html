@@ -1,0 +1,29 @@
+{% extends 'mainpage/mainpage_base.html' %}
+{% block content %}
+
+<div class="container">
+
+        <section class="intro">
+            <div class="column">
+                <form method="post">
+                    {% csrf_token %}
+                    <h1>¿Desea eliminar el registro??</h1>
+                    <div style="padding-left: 40%">
+                        <button type="submit" class="button is-danger">CONFIRMAR</button>
+                        <a class="button" href="{% url 'mainpage:inicio' %}">Volver a Inicio</a>
+                    </div>
+                </form>
+             </div>
+    </section>
+</div>
+<style>
+.footer{
+    bottom: 0;
+    position: fixed;
+    min-width: 100%;
+}
+
+</style>
+
+
+{% endblock %}

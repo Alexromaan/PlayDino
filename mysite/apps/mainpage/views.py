@@ -50,3 +50,10 @@ def add_series(request):
         data['form'] = formulary
     return render(request, 'mainpage/series.html', data)
 
+
+def delete(request, pk):
+    serie = Series.objects.filter(id=pk)
+    if request.method == 'POST':
+        serie.delete()
+        return redirect(to='mainpage:inicio')
+    return render(request, 'mainpage/delete.html', {'serie': serie})

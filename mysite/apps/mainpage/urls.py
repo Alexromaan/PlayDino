@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('series/', views.add_series, name='series'),
     path('perfil/', views.perfil, name='perfil'),
+    path('delete/<int:pk>', views.delete, name='eliminado'),
 ]

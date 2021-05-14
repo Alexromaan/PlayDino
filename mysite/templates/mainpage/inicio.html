@@ -21,15 +21,15 @@
           <div class="thumbnail">
               <a><img src="{{ serie.image }}"  alt="portada" class="cards"/></a>
               <br/>
-              <p class="tag">{{serie}}</p>
+              <p class="tag">{{serie.name}}</p>
 
               <p><strong>Capítulo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ serie.chapter }}</p>
               <p><strong>Temporada:&nbsp;</strong>{{ serie.season }}</p>
               <p><strong>Plataforma:&nbsp;</strong>{{ serie.platform }}</p>
               <br/>
 
-              <form action="editar/ {{ serie.id }}"><button type="submit" class="button button is-primary">Editar</button></form>
-              <button type="button" class="button is-danger">Eliminar</button>
+              <a class="button is-primary">Editar</a>
+              <a href="{% url 'mainpage:eliminado' serie.id %}" class="button is-danger">Eliminar</a>
           </div>
       {% endfor %}
   </div>
