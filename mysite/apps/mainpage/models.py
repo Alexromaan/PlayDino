@@ -22,8 +22,3 @@ class Series(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class EditSerie(ModelForm):
-    model = Series
-    fields = ['name','platform','season','chapter','image']
