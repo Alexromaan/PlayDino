@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="cambios generales">
-      <change afterPath="$PROJECT_DIR$/templates/mainpage/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mainpage/buscar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mainpage/edit_film.html" afterDir="false" />
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="Ya se pueden añadir tambien peliculas, hay diferenciacion en los formularios, he añadido un radio button para elegir si añadir serie o peli, ahora tambien hay tarjetas de peliculas, he eliminado la opcion de elegir plataforma">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/login/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/mainpage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/edit_serie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/series.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +108,7 @@
       <workItem from="1620982782991" duration="21938000" />
       <workItem from="1621599616462" duration="15000" />
       <workItem from="1621692679284" duration="18052000" />
+      <workItem from="1621717109799" duration="923000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>

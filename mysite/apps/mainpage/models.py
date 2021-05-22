@@ -33,5 +33,6 @@ class Films(models.Model):
     def __str__(self):
         return self.name
 
-class notes(models.Model):
+class Note(models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE, null=True)
