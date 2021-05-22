@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="Films registrado en django admin" />
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="Films registrado en django admin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/edit_film.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/edit_film.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/edit_serie.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/edit_serie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,6 +112,7 @@
       <workItem from="1621599616462" duration="15000" />
       <workItem from="1621692679284" duration="18052000" />
       <workItem from="1621717109799" duration="991000" />
+      <workItem from="1621722499873" duration="1334000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>
