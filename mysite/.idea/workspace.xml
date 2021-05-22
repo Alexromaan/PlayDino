@@ -2,31 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="cambios generales">
-      <change afterPath="$PROJECT_DIR$/templates/mainpage/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mainpage/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mainpage/buscar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mainpage/edit_film.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/login/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/502ce612623e76f1026986ea0d249b7d.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/5a579a439538462e5a82d44c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Unknown.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Unknown.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Unknown_I2fhSaS.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Unknown_Yiu7KR0.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/crying.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/crying_yJ9n1O9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/tostadita.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/edit_serie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/series.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/series.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/series.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -39,6 +43,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/templates/mainpage/edit_film.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1rUXTZRutqEtrNVBgo375q3g3pl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -47,9 +54,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -106,6 +116,8 @@
       <workItem from="1620928425733" duration="26000" />
       <workItem from="1620939251713" duration="4539000" />
       <workItem from="1620982782991" duration="21938000" />
+      <workItem from="1621599616462" duration="15000" />
+      <workItem from="1621692679284" duration="18052000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>

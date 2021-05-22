@@ -1,0 +1,76 @@
+{% extends 'mainpage/mainpage_base.html' %}
+{% load static %}
+{% block title %}
+    Añadir Contenido
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="background-color: #00d1b2; padding-bottom: 1px">
+        <div class="columns is-mobile" style="margin-bottom: 10%; margin-top: 30px">
+            <div class="column is-half is-offset-one-quarter" style="margin-top: 50px">
+                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAY ALGO QUE NO ENCUENTRAS?</h3>
+                <h4 class="tittle is-size-5" style="text-align: center; color: rgb(0, 0, 0) ">NO TE PREOCUPES, AQUÍ PODRÁS AGREGARLO TU MISMO</h4>
+                <br>
+                    <p style="text-align: center">
+                        <label for="cfilm"></label>
+                        <input type="radio" name="check" id="cfilm" value="1" onchange="showContent()" />Añadir Pelicula
+                        <label for="cserie">&nbsp;&nbsp;</label>
+                        <input type="radio" name="check" id="cserie" value="1" onchange="showContent()" />Añadir Serie
+                    </p>
+
+                <div id="fpelis" style="display: none">
+                     <form  method="post" enctype="multipart/form-data" action="{% url 'mainpage:añadir' %}">
+                        {% csrf_token %}
+                        {% for field in Filmform %}
+                            <div class="field">
+                                <label for="{{ field.id_for_label }}" class="label"></label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                         <p style="color: white; text-align: center"><strong>¿Quieres añadir una portada?  haz click en "seleccionar archivo"</strong></p>
+                            <br/>
+                         <button type="submit" class="button is-large is-fullwidth">AÑADIR PELICULA</button>
+                    </form>
+                </div>
+
+                <div id="fseries" style="display: none">
+                    <form method="post" enctype="multipart/form-data" action="{% url 'mainpage:añadir' %}">
+                        {% csrf_token %}
+                        {% for field in Serieform %}
+                            <div class="field">
+                                <label for="{{ field.id_for_label }}" class="label"></label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                         <p style="color: white; text-align: center"><strong>¿Quieres añadir una portada?  haz click en "seleccionar archivo"</strong></p>
+                            <br/>
+                         <button type="submit" class="button is-large is-fullwidth">AÑADIR SERIE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent() {
+            let form = document.getElementById("fpelis");
+            let form2 = document.getElementById("fseries");
+            let check = document.getElementById("cfilm");
+            let check2= document.getElementById("cserie");
+            //mostrar peliculas form
+            if (check.checked) {
+                form.style.display='block';
+            }
+            else {
+                form.style.display='none';
+            }
+            //mostrar series form
+            if (check2.checked) {
+                form2.style.display='block';
+            }
+            else {
+                form2.style.display='none';
+            }
+        }
+    </script>
+{% endblock %}

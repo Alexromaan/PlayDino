@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from .models import Series
-from apps.login.forms import AddSerie, UpdateUser
+from .models import Series, Films
+from apps.login.forms import AddSerie, AddFilm
 
 
 # Create your views here.
@@ -11,47 +11,49 @@ from apps.login.forms import AddSerie, UpdateUser
 def inicio(request):
     usuario = request.user
     series = Series.objects.filter(user=usuario)
-    context = {'series': series}
+    films = Films.objects.filter(user=usuario)
+    context = {'series': series, 'films': films}
     return render(request, 'mainpage/inicio.html', context)
 
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
 def perfil(request):
-    data = {
-        'form': UpdateUser(),
-    }
-    if request.method == 'POST':
-        formulation = UpdateUser(data=request.POST)
-        if formulation.is_valid():
-            formulation.save(),
-            return redirect(to='mainpage:perfil')
-        data['form'] = formulation
-    return render(request, 'mainpage/perfil.html', data)
+    return render(request, 'mainpage/perfil.html')
 
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
-def add_series(request):
+def add(request):
     data = {
-        'form': AddSerie(),
+        'Serieform': AddSerie(),
+        'Filmform':  AddFilm()
     }
     if request.method == 'POST':
-        formulary = AddSerie(request.POST, request.FILES)
-        if formulary.is_valid():
-            nueva_serie = Series(
-                name=formulary.cleaned_data['name'],
-                platform=formulary.cleaned_data['platform'],
-                season=formulary.cleaned_data['season'],
-                chapter=formulary.cleaned_data['chapter'],
+        formulary1 = AddFilm(request.POST, request.FILES)
+        if formulary1.is_valid():
+            nueva_peli = Films(
+                name=formulary1.cleaned_data['name'],
+                time=formulary1.cleaned_data['time'],
                 user=request.user,
-                image=formulary.cleaned_data['image'],
+                image=formulary1.cleaned_data['image'],
+            )
+            nueva_peli.save()
+            return redirect(to='mainpage:inicio')
+
+        formulary2 = AddSerie(request.POST, request.FILES)
+        if formulary2.is_valid():
+            nueva_serie = Series(
+                name=formulary2.cleaned_data['name'],
+                season=formulary2.cleaned_data['season'],
+                chapter=formulary2.cleaned_data['chapter'],
+                user=request.user,
+                image=formulary2.cleaned_data['image'],
             )
             nueva_serie.save()
             return redirect(to='mainpage:inicio')
-        data['form'] = formulary
-    return render(request, 'mainpage/series.html', data)
+    return render(request, 'mainpage/add.html', data)
 
 
-def delete(request, pk):
+def delete_serie(request, pk):
     serie = Series.objects.get(id=pk)
     if request.method == 'POST':
         serie.delete()
@@ -59,33 +61,56 @@ def delete(request, pk):
     return render(request, 'mainpage/delete.html', {'serie': serie})
 
 
-def edit(request, pk):
+def edit_serie(request, pk):
     serie = Series.objects.get(id=pk)
     data = {
-        'form': AddSerie(),
+        'Serieform': AddSerie(),
         'name': serie.name,
         'chapter': serie.chapter,
         'season': serie.season,
-        'platform': serie.platform,
-        'image': serie.image
     }
     if request.method == 'POST':
         formulary = AddSerie(request.POST)
         if formulary.is_valid():
             nueva_serie = Series(
                 name=formulary.cleaned_data['name'],
-                platform=formulary.cleaned_data['platform'],
                 season=formulary.cleaned_data['season'],
                 chapter=formulary.cleaned_data['chapter'],
-                image=serie.image,
                 user=request.user,
                 id=serie.id,
+                image=serie.image
             )
             nueva_serie.save()
         return redirect(to='mainpage:inicio')
-    return render(request, 'mainpage/edit.html', data)
+    return render(request, 'mainpage/edit_serie.html', data)
 
 
-@login_required(login_url=reverse_lazy('login:mainlogin'))
-def show_profile(request):
-    return request
+def delete_film(request, pk):
+    film = Films.objects.get(id=pk)
+    if request.method == 'POST':
+        film.delete()
+        return redirect(to='mainpage:inicio')
+    return render(request, 'mainpage/delete.html', {'film': film})
+
+
+def edit_film(request, pk):
+    film = Films.objects.get(id=pk)
+    data = {
+        'Filmform': AddFilm(),
+        'name': film.name,
+        'time': film.time,
+        'film': film.image
+    }
+    if request.method == 'POST':
+        formulary = AddFilm(request.POST)
+        if formulary.is_valid():
+            nueva_peli = Films(
+                name=formulary.cleaned_data['name'],
+                time=formulary.cleaned_data['time'],
+                user=request.user,
+                id=film.id,
+                image=film.image,
+            )
+            nueva_peli.save()
+        return redirect(to='mainpage:inicio')
+    return render(request, 'mainpage/edit_film.html', data)

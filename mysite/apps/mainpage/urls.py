@@ -5,8 +5,12 @@ app_name = 'mainpage'
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
-    path('series/', views.add_series, name='series'),
     path('perfil/', views.perfil, name='perfil'),
-    path('delete/<int:pk>', views.delete, name='eliminado'),
-    path('edit/<int:pk>', views.edit, name='editar'),
+    path('añadir/', views.add, name='añadir'),
+    #rutas de las series
+    path('delete_serie/<int:pk>', views.delete_serie, name='eliminar serie'),
+    path('edit_serie/<int:pk>', views.edit_serie, name='editar serie'),
+    #rutas de las peliculas
+    path('delete_film/<int:pk>', views.delete_film, name='eliminar pelicula'),
+    path('edit_film/<int:pk>', views.edit_film, name='editar pelicula'),
 ]

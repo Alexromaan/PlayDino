@@ -1,0 +1,30 @@
+{% extends 'mainpage/mainpage_base.html' %}
+{% load static %}
+{% block title %}
+    Añade una Pelicula
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="background-color: #00d1b2; padding-bottom: 1px">
+        <div class="columns is-mobile" style="margin-bottom: 10%; margin-top: 30px">
+            <div class="column is-half is-offset-one-quarter" style="margin-top: 50px">
+                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAS AVANZADO? ANÓTALO AQUÍ DEBAJO</h3>
+                 <form name="f1" id="f1" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="field"><label>Título</label>
+                            <input type="text" name="name" class="input" placeholder="Título" id="id_name" value="{{name}}">
+                        </div>
+                        <div class="field"><label>¿Dónde te has quedado?</label>
+                            <input type="text" name="time" class="input" placeholder="00:23:45" id="id_time" value="{{time}}">
+                        </div>
+                        <br/>
+                        <div style="text-align: center">
+                        <button type="submit" class="button is-large" style="width: 30%">Editar</button>
+                        <a class="button is-danger is-large" href="{% url 'mainpage:inicio' %}">Cancelar</a>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

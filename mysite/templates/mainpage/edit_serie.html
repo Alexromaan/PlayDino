@@ -8,16 +8,11 @@
     <div class="container" style="background-color: #00d1b2; padding-bottom: 1px">
         <div class="columns is-mobile" style="margin-bottom: 10%; margin-top: 30px">
             <div class="column is-half is-offset-one-quarter" style="margin-top: 50px">
-                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAS VISTO NUEVOS CAPÍTULOS? ANÓTALO AQUI DEBAJO</h3>
+                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAS AVANZADO? ANÓTALO AQUÍ DEBAJO</h3>
                  <form name="f1" id="f1" method="post" enctype="multipart/form-data">
-
                     {% csrf_token %}
-
                         <div class="field"><label>Título</label>
                             <input type="text" name="name" class="input" placeholder="Título" id="id_name" value="{{name}}">
-                        </div>
-                        <div class="field"><label>Plataforma</label>
-                            <input type="text" name="platform" class="input" placeholder="Plataforma" id="id_platform" value="{{platform}}">
                         </div>
                         <div class="field"><label>Capítulo</label>
                             <input type="text" name="chapter" class="input" placeholder="Capítulo" id="id_chapter" value="{{chapter}}">
@@ -25,9 +20,12 @@
                         <div class="field"><label>Temporada</label>
                             <input type="text" name="season" class="input" placeholder="Temporada" id="id_season" value="{{season}}">
                         </div>
-                     <br/>
-                     <button type="submit" class="button is-large is-fullwidth">Confirmar Cambios</button>
-                </form>
+                        <br/>
+                        <div style="text-align: center">
+                        <button type="submit" class="button is-large" style="width: 30%">Editar</button>
+                        <a class="button is-danger is-large" href="{% url 'mainpage:inicio' %}">Cancelar</a>
+                        </div>
+                    </form>
             </div>
         </div>
     </div>

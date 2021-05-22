@@ -19,17 +19,30 @@
     {% csrf_token %}
       {% for serie in series %}
           <div class="thumbnail">
-              <a><img src="{{ serie.image }}"  alt="portada" class="cards"/></a>
+              <a><img src="{{ serie.image }}"  alt="Imagen no disponible" class="cards"/></a>
               <br/>
               <p class="tag">{{serie.name}}</p>
 
               <p><strong>Capítulo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ serie.chapter }}</p>
               <p><strong>Temporada:&nbsp;</strong>{{ serie.season }}</p>
-              <p><strong>Plataforma:&nbsp;</strong>{{ serie.platform }}</p>
               <br/>
 
-              <a href="{% url 'mainpage:editar' serie.id %}" class="button is-primary">Editar</a>
-              <a href="{% url 'mainpage:eliminado' serie.id %}" class="button is-danger">Eliminar</a>
+              <a href="{% url 'mainpage:editar serie' serie.id %}" class="button is-primary">Editar</a>
+              <a href="{% url 'mainpage:eliminar serie' serie.id %}" class="button is-danger">Eliminar</a>
+          </div>
+      {% endfor %}
+
+        {% for peli in films %}
+          <div class="thumbnail">
+              <a><img src="{{ peli.image }}"  alt="Imagen no disponible" class="cards"/></a>
+              <br/>
+              <p class="tag">{{peli.name}}</p>
+
+              <p><strong>Minuto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ peli.time }}</p>
+              <br/>
+
+              <a href="{% url 'mainpage:editar pelicula' peli.id %}" class="button is-primary">Editar</a>
+              <a href="{% url 'mainpage:eliminar pelicula' peli.id %}" class="button is-danger">Eliminar</a>
           </div>
       {% endfor %}
   </div>
