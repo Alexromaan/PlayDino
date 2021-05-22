@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="Ya se pueden añadir tambien peliculas, hay diferenciacion en los formularios, he añadido un radio button para elegir si añadir serie o peli, ahora tambien hay tarjetas de peliculas, he eliminado la opcion de elegir plataforma">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-    </list>
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="Films registrado en django admin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +103,7 @@
       <workItem from="1620982782991" duration="21938000" />
       <workItem from="1621599616462" duration="15000" />
       <workItem from="1621692679284" duration="18052000" />
-      <workItem from="1621717109799" duration="923000" />
+      <workItem from="1621717109799" duration="991000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>
@@ -152,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620993609088</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Films registrado en django admin">
+      <created>1621718114481</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621718114481</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +177,7 @@
     <MESSAGE value="css" />
     <MESSAGE value="faltaba el block content en base.html" />
     <MESSAGE value="cambios generales" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios generales" />
+    <MESSAGE value="Films registrado en django admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Films registrado en django admin" />
   </component>
 </project>
