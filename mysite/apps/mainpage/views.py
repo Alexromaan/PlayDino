@@ -1,7 +1,9 @@
+import requests
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
+from .imdb import search
 from .models import Series, Films
 from apps.login.forms import AddSerie, AddFilm
 
@@ -25,7 +27,7 @@ def perfil(request):
 def add(request):
     data = {
         'Serieform': AddSerie(),
-        'Filmform':  AddFilm()
+        'Filmform': AddFilm()
     }
     if request.method == 'POST':
         formulary1 = AddFilm(request.POST, request.FILES)
@@ -114,3 +116,32 @@ def edit_film(request, pk):
             nueva_peli.save()
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/edit_film.html', data)
+
+
+def add_note(request):
+    return request
+
+
+def fetch(request):
+    if request.method == 'POST':
+        # recojo la palabra que se ha introducido en la barra de busqueda
+        title = request.POST.get('title')
+        json = search(title)
+        resultset = json['Search']
+
+        # inicializamos las variables que le voy a pasar al template
+        titles = {None}
+        data = {
+            'titles': titles,
+            'query': title
+        }
+        # añado los datos que necesito a las variables anteriores
+        for result in resultset:
+            titles.add(result['Title'])
+        return render(request, 'mainpage/fetch.html', data)
+    return render(request, 'mainpage/fetch.html')
+
+
+def save_fetch(request):
+    # aqui hay que poner el añadir
+    return request

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <script src="{% static 'js/Navbar.js' %}"></script>
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
-    {% block aditional_js %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% block aditional_ref %}{% endblock %}
 </head>
 <body>
 <nav class="navbar">
@@ -25,6 +26,7 @@
         <div class="navbar-menu" id="nav-data">
             <a href={% url 'mainpage:inicio'%} class="navbar-item">Home</a>
             <a href={% url 'mainpage:perfil'%} class="navbar-item">Perfil</a>
+            <a href={% url 'mainpage:buscar'%} class="navbar-item">Buscar</a>
             <a href={% url 'mainpage:añadir'%} class="navbar-item">Añadir Contenido</a>
             <div class="navbar-end">
                 <div class="navbar-item">

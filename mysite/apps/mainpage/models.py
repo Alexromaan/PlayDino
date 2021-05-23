@@ -35,4 +35,9 @@ class Films(models.Model):
 
 class Note(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE, null=True)
+    text = models.TextField(max_length=500)
+    serie = models.ForeignKey(Series, to_field='id', on_delete=models.CASCADE, null=True)
+    film = models.ForeignKey(Films, to_field='id', on_delete=models.CASCADE, null=True)
+
+    def __srt__(self):
+        return self.text

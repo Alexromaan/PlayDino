@@ -1,0 +1,42 @@
+{% extends 'mainpage/mainpage_base.html' %}
+{% block title %}
+    Buscar Contenido
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <section class="intro">
+            <div class="column">
+                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">
+                    AQUÍ PODRÁS ENCONTRAR CONTENIDO PARA TU PERFIL</h3>
+                <h4 class="tittle is-size-5" style="text-align: center; color: rgb(0, 0, 0) ">
+                   Prueba a buscar el nombre de una pelicula o serie </h4>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="field" >
+                         <p class="control has-icons-left has-icons-right" style="width: 80%; left: 10%">
+                                 <input  class="input" type="text" placeholder="Buscar" name="title" value="{{ query }}">
+                             <span class="icon is-left">
+                              <i class="fas fa-search"></i>
+                             </span>
+                         </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+      <table class="table" style="width: 80%; margin-left: 10%;">
+        <tbody>
+          {% for title in titles %}{% if title != None %}
+            <tr class="is-selected" style="background-color: #F8F8F8; color: #0a0a0a">
+             <th>{{ forloop.counter }}</th>
+             <td><p>{{ title }}</p></td>
+             <td style="left: 0"><button class="button is-medium" style="width: 100%">Añadir</button> </td>
+            </tr>
+         {% endif %}{% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

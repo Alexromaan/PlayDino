@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('perfil/', views.perfil, name='perfil'),
     path('añadir/', views.add, name='añadir'),
+    path('buscar/', views.fetch, name='buscar'),
     #rutas de las series
     path('delete_serie/<int:pk>', views.delete_serie, name='eliminar serie'),
     path('edit_serie/<int:pk>', views.edit_serie, name='editar serie'),
