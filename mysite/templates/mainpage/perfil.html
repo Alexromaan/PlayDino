@@ -11,29 +11,41 @@
             <h3>ESTE ES TU PERFIL DE USUARIO, USANDO EL BOTÓN DE ABAJO PUEDES MODIFICAR LOS DATOS</h3>
         </div>
 
+        <!--imagen del usuario-->
         <div class="columns is-mobile" style="margin: 1% 20% 0;">
-            {% for imagen in image %}
+            {% if image %}
             <figure class="image">
-                <img class="" src="http://127.0.0.1:8000/{{ imagen.image }}" alt="profile image">
+                <img class="" src="http://127.0.0.1:8000/{{ image.image }}" alt="profile image">
             </figure>
-            {% endfor %}
+            {% else %}
+            <figure class="image">
+                <img class="" src="http://127.0.0.1:8000/static/media/default.png" alt="profile image">
+            </figure>
+            {% endif %}
+
+        <!--formulario para cambiar datos del usuario-->
          <form name="f1" id="f1" method="post" enctype="multipart/form-data" style="margin-left: 5%; width: 100%">
              {% csrf_token %}
-                    <div class="field"><label for="first_name">Nombre</label>
-                        <input disabled id="first_name" type="text" name="name" class="input" value="{{user.first_name}}">
-                    </div>
-                    <div class="field"><label for="last_name">Apellidos</label>
-                        <input disabled id="last_name" type="text" name="chapter" class="input" value="{{user.last_name}}">
-                    </div>
-                    <div class="field"><label for="email">Correo Electrónico</label>
-                        <input disabled id="email" type="text" name="season" class="input"  value="{{user.email}}">
-                    </div>
+             <div class="field"><label for="id_first_name">Título</label>
+                <input type="text" name="first_name" class="input" placeholder="Nombre" id="id_first_name"
+                       disabled value="{{user.first_name}}">
+            </div>
+            <div class="field"><label>Capítulo</label>
+                <input type="text" name="last_name" class="input" placeholder="Apellidos" id="id_last_name"
+                       disabled value="{{user.last_name}}">
+            </div>
+            <div class="field"><label>Temporada</label>
+                <input type="text" name="email" class="input" placeholder="Correo Electrónico"
+                       disabled id="id_email" value="{{user.email}}">
+            </div>
+
+            <br/>
              <div style="text-align: right">
                  <a id="cancel" class="button is-danger is-inverted is-rounded" href="{% url 'mainpage:perfil' %}"
                  style="display:none">
                      Cancelar
                  </a>
-                 <button id='save' class="button is-primary is-inverted is-rounded" type="submit" style="display:none">
+                 <button id='save' class="button is-primary is-inverted is-rounded" type="submit" style="display: none">
                      Guardar Cambios
                  </button>
             </div>
@@ -45,21 +57,22 @@
 
 </section>
 
+
 <script>
 function toggle() {
-    let field = document.getElementById("first_name")
+    let field = document.getElementById("id_first_name")
     if (field.disabled === true){
         field.disabled = false;
-        document.getElementById("last_name").disabled = false;
-        document.getElementById("email").disabled = false;
+        document.getElementById("id_last_name").disabled = false;
+        document.getElementById("id_email").disabled = false;
         document.getElementById("cancel").style.display = 'inline-block';
         document.getElementById("save").style.display = 'inline-block';
         document.getElementById("editor").style.display = 'none';
     }
     else {
         field.disabled = true;
-        document.getElementById("last_name").disabled = true;
-        document.getElementById("email").disabled = true;
+        document.getElementById("id_last_name").disabled = true;
+        document.getElementById("id_email").disabled = true;
 
     }
 

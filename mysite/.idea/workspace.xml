@@ -1,39 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="ahora aparecen los resultados de la api en una tarjeta y además se pueden añadir al perfil">
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="perfil de usuario">
+      <change afterPath="$PROJECT_DIR$/static/media/default.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/login/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/login/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0002_auto_20210513_1137.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0003_series_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0004_auto_20210513_1435.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0005_auto_20210513_1447.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0006_auto_20210513_1451.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0007_auto_20210513_1501.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0008_auto_20210513_1517.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0009_auto_20210514_1623.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0010_auto_20210522_2058.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0011_delete_notes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0012_fetch_note.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0013_auto_20210524_1030.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0014_auto_20210524_1032.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0015_auto_20210524_1035.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/mainpage/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bulma.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bulma.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/AAAABV59aVGz_GGmHhXWkNxNZ91vqNJ8vL92gnbpALsEvRAAM30nC4Avam55U4iE1znVy7ZNkwg_qmENG5r.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Unknown_bfLJ457.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/perfil.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,9 +59,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/media" />
       <recent name="$PROJECT_DIR$/static/" />
       <recent name="$PROJECT_DIR$/static" />
-      <recent name="$PROJECT_DIR$/static/media" />
       <recent name="$PROJECT_DIR$/templates/mainpage/static/media" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -143,7 +118,7 @@
       <workItem from="1621765878471" duration="29100000" />
       <workItem from="1621804850474" duration="34000" />
       <workItem from="1621845911878" duration="29709000" />
-      <workItem from="1621878411325" duration="5681000" />
+      <workItem from="1621878411325" duration="9535000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>
@@ -208,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621853036177</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="perfil de usuario">
+      <created>1621884961876</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621884961876</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +216,7 @@
     <MESSAGE value="Films registrado en django admin" />
     <MESSAGE value="responsive cards" />
     <MESSAGE value="ahora aparecen los resultados de la api en una tarjeta y además se pueden añadir al perfil" />
-    <option name="LAST_COMMIT_MESSAGE" value="ahora aparecen los resultados de la api en una tarjeta y además se pueden añadir al perfil" />
+    <MESSAGE value="perfil de usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="perfil de usuario" />
   </component>
 </project>

@@ -22,9 +22,11 @@ def inicio(request):
 def perfil(request):
     usuario = request.user
     image = Image.objects.filter(user=usuario)
+    user_form = UserChangeForm(instance=request.user)
     ctx = {
         'usuario': usuario,
-        'image': image
+        'image': image,
+        'form': user_form,
     }
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
