@@ -21,7 +21,7 @@ function change_bg_stack_to_anim() {
 document.getElementById('switch').onclick = function () {
 
 
-    if (localStorage.bgCheck == 0) {
+    if (localStorage.bgCheck === 0) {
         localStorage.bgCheck = 1;
         change_bg_stack_to_clean()
 
@@ -37,7 +37,7 @@ if (!localStorage.bgCheck) {
     localStorage.bgCheck = 0;
     console.log('Set bgCheck');
 }
-if (localStorage.bgCheck && localStorage.bgCheck == 1) {
+if (localStorage.bgCheck && localStorage.bgCheck === 1) {
     document.getElementById('switch').checked = false;
     change_bg_stack_to_clean();
 } else {
@@ -54,14 +54,4 @@ if (localStorage.checkbox && localStorage.checkbox !== "") {
 } else {
     rmCheck.removeAttribute("checked");
     username.value = "";
-}
-
-function lsRememberMe() {
-    if (rmCheck.checked && username.value !== "") {
-        localStorage.username = username.value;
-        localStorage.checkbox = rmCheck.value;
-    } else {
-        localStorage.username = "";
-        localStorage.checkbox = "";
-    }
 }

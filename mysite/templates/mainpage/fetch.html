@@ -15,7 +15,9 @@
                     {% csrf_token %}
                     <div class="field" >
                          <p class="control has-icons-left has-icons-right" style="width: 80%; left: 10%">
+                             <label>
                                  <input  class="input" type="text" placeholder="Buscar" name="title" value="{{ keyword }}">
+                             </label>
                              <span class="icon is-left">
                               <i class="fas fa-search"></i>
                              </span>

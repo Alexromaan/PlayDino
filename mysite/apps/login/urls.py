@@ -7,4 +7,3 @@ urlpatterns = [
     path('desconectar', views.logout_home, name='logout'),
     path('registro', views.RegistroUsuario, name='registro'),
 ]
-

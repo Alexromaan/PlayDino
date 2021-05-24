@@ -11,13 +11,13 @@
                 <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAS AVANZADO? ANÓTALO AQUÍ DEBAJO</h3>
                  <form name="f1" id="f1" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                        <div class="field"><label>Título</label>
+                        <div class="field"><label for="id_name">Título</label>
                             <input type="text" name="name" class="input" placeholder="Título" id="id_name" value="{{name}}">
                         </div>
-                        <div class="field"><label>Capítulo</label>
+                        <div class="field"><label for="id_chapter">Capítulo</label>
                             <input type="text" name="chapter" class="input" placeholder="Capítulo" id="id_chapter" value="{{chapter}}">
                         </div>
-                        <div class="field"><label>Temporada</label>
+                        <div class="field"><label for="id_season">Temporada</label>
                             <input type="text" name="season" class="input" placeholder="Temporada" id="id_season" value="{{season}}">
                         </div>
                         <br/>

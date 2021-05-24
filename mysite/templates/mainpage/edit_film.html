@@ -11,10 +11,10 @@
                 <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">¿HAS AVANZADO? ANÓTALO AQUÍ DEBAJO</h3>
                  <form name="f1" id="f1" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                        <div class="field"><label>Título</label>
+                        <div class="field"><label for="id_name">Título</label>
                             <input type="text" name="name" class="input" placeholder="Título" id="id_name" value="{{name}}">
                         </div>
-                        <div class="field"><label>¿Dónde te has quedado?</label>
+                        <div class="field"><label for="id_time">¿Dónde te has quedado?</label>
                             <input type="text" name="time" class="input" placeholder="00:23:45" id="id_time" value="{{time}}">
                         </div>
                         <br/>

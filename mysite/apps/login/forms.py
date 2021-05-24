@@ -4,10 +4,10 @@ from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django.contrib.auth.models import User
 
 
-
 class CustomUserCreationForm(UserCreationForm):
     username = UsernameField(
-        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Usuario: El que usarás para iniciar sesión'})
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True,
+                                      'placeholder': 'Usuario: El que usarás para iniciar sesión'})
     )
     first_name = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre'})
