@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="responsive cards">
-      <change afterPath="$PROJECT_DIR$/apps/mainpage/imdb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mainpage/fetch.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/mainpage/imdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/imdb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/AAAABV59aVGz_GGmHhXWkNxNZ91vqNJ8vL92gnbpALsEvRAAM30nC4Avam55U4iE1znVy7ZNkwg_RXkUqXl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/Unknown.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/fetch.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/fetch.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/mainpage_base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,9 @@
       <workItem from="1621692679284" duration="18052000" />
       <workItem from="1621717109799" duration="991000" />
       <workItem from="1621722499873" duration="1691000" />
-      <workItem from="1621765878471" duration="28953000" />
+      <workItem from="1621765878471" duration="29100000" />
+      <workItem from="1621804850474" duration="34000" />
+      <workItem from="1621845911878" duration="6594000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>

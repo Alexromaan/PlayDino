@@ -18,7 +18,9 @@
 
     {% csrf_token %}
       {% for serie in series %}
-          <div class="thumbnail">
+          <div class="thumbnail" style="padding-top: 0 !important;">
+           <p style="text-align: center;background-color: #00d1b2; padding-left: 0 !important;"><strong>SERIE</strong></p>
+              <br/>
               <a><img src="{{ serie.image }}"  alt="Imagen no disponible" class="cards"/></a>
               <br/>
               <p class="thumbtittle">{{serie.name}}</p>
@@ -35,7 +37,9 @@
       {% endfor %}
 
         {% for peli in films %}
-          <div class="thumbnail">
+          <div class="thumbnail" style="padding-top: 0 !important;">
+           <p style="text-align: center;background-color: #00d1b2; padding-left: 0 !important;"><strong>MOVIE</strong></p>
+              <br/>
               <a><img src="{{ peli.image }}"  alt="Imagen no disponible" class="cards"/></a>
               <br/>
               <p class="thumbtittle">{{peli.name}}</p>

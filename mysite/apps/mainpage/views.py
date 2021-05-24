@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from .imdb import search
-from .models import Series, Films
+from .imdb import search, search_by_id
+from .models import Series, Films, Fetch
 from apps.login.forms import AddSerie, AddFilm
 
 
@@ -123,25 +123,62 @@ def add_note(request):
 
 
 def fetch(request):
+    # Aqui trabajaremos con la api de IMDB por lo que hago el parametro global
+    global data
     if request.method == 'POST':
-        # recojo la palabra que se ha introducido en la barra de busqueda
-        title = request.POST.get('title')
-        json = search(title)
-        resultset = json['Search']
+        # el modelo Fetch es auxiliar por lo que cada vez que se carga la pagina se elimina
+        Fetch.objects.all().delete()
 
-        # inicializamos las variables que le voy a pasar al template
-        titles = {None}
-        data = {
-            'titles': titles,
-            'query': title
-        }
-        # añado los datos que necesito a las variables anteriores
-        for result in resultset:
-            titles.add(result['Title'])
-        return render(request, 'mainpage/fetch.html', data)
+        # recojo el titulo introducido
+        keyword = request.POST.get('title')
+        # search es el metodo de la api imdb.py
+        json = search(keyword)
+
+        # si se devuelven resultados
+        if json['Response'] != "False":
+            resultset = json['Search']
+            # recorro los resultados y los añado a la tabla Fetch
+            for result in resultset:
+                variable = Fetch(
+                    title=result['Title'],
+                    image=result['Poster'],
+                    imdb=result['imdbID'],
+                    type=result['Type']
+                )
+                variable.save()
+                total = Fetch.objects.all()
+                data = {
+                    'keyword': keyword,
+                    'fetch': total
+                }
+            return render(request, 'mainpage/fetch.html', data)
+        else:
+            # en el caso de que la api no encuentre nada, mando este mensaje
+            data = {'name': "No se han encontrado resultados para: ", 'keyword': keyword}
+            return render(request, 'mainpage/fetch.html', data)
+    #este return es para cuando el request:method = GET, va sin parametros
     return render(request, 'mainpage/fetch.html')
 
 
-def save_fetch(request):
-    # aqui hay que poner el añadir
-    return request
+def save_fetch(request, pk):
+    #saco todos los datos de la pelicula/serie elegida y compruebo su tipo de contenido
+    json = search_by_id(pk)
+
+    if json['Type'] == "movie":
+        nueva_peli = Films(
+            name=json['Title'],
+            user=request.user,
+            image=json['Poster']
+        )
+        nueva_peli.save()
+        return redirect(to='mainpage:inicio')
+
+    if json['Type'] == "series":
+        nueva_serie = Series(
+            name=json['Title'],
+            user=request.user,
+            image=json['Poster'],
+        )
+        nueva_serie.save()
+        return redirect(to='mainpage:inicio')
+    return render(request, 'mainpage/inicio.html')

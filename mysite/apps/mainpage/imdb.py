@@ -13,3 +13,10 @@ def search(title):
     response = requests.request("GET", url, headers=headers, params=querystring)
     json = response.json()
     return json
+
+
+def search_by_id(pk):
+    querystring = {"i": pk, "r": "json"}
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    json = response.json()
+    return json

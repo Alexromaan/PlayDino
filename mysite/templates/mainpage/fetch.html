@@ -15,7 +15,7 @@
                     {% csrf_token %}
                     <div class="field" >
                          <p class="control has-icons-left has-icons-right" style="width: 80%; left: 10%">
-                                 <input  class="input" type="text" placeholder="Buscar" name="title" value="{{ query }}">
+                                 <input  class="input" type="text" placeholder="Buscar" name="title" value="{{ keyword }}">
                              <span class="icon is-left">
                               <i class="fas fa-search"></i>
                              </span>
@@ -25,18 +25,22 @@
             </div>
         </section>
     </div>
-      <table class="table" style="width: 80%; margin-left: 10%;">
-        <tbody>
-          {% for title in titles %}{% if title != None %}
-            <tr class="is-selected" style="background-color: #F8F8F8; color: #0a0a0a">
-             <th>{{ forloop.counter }}</th>
-             <td><p>{{ title }}</p></td>
-             <td style="left: 0"><button class="button is-medium" style="width: 100%">Añadir</button> </td>
-            </tr>
-         {% endif %}{% endfor %}
-        </tbody>
-    </table>
-
+    {% if name %}
+         <h4 class="tittle is-size-5" style="text-align: center; color: rgb(0, 0, 0) ">{{ name }}{{ keyword }}</h4>
+    {% endif %}
+    <div class="gallery">
+      {% for result in fetch %}
+          <div class="thumbnail" style="padding-top: 0 !important;">
+              <p style="text-align: center;background-color: #00d1b2; padding-left: 0 !important;"><strong>{{ result.type.upper }}</strong></p>
+              <br/>
+              <a><img src="{{ result.image }}"  alt="Imagen no disponible" class="cards"/></a>
+              <br/>
+              <p class="thumbtittle">{{result.title}}</p>
+              <br/>
+              <a href="{% url 'mainpage:save' result.imdb %}" class="button is-primary">Añadir</a>
+          </div>
+      {% endfor %}
+    </div>
 
 
 {% endblock %}
