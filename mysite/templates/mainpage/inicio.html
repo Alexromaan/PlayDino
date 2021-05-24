@@ -10,9 +10,26 @@
         <section class="intro">
             <div class="column">
                 <h1>Bienvenido {{ user }}</h1>
-                <h3>A medida que vayas añadiendo contenido desde el menú de arriba, la irás viendo reflejada en esta página</h3>
+                <hr style="width: 80%; margin-left: 10% !important; "/>
+                <div class="instrucciones">
+                    <strong class="pasos">Te haré una breve introducción:</strong><br/>
+                    <strong class="pasos">1. En el apartado "Perfil" puedes modificar tus datos</strong><br/>
+                    <strong class="pasos">2. En el apatado "Buscar" podrás encontrar casi cualquier serie o pelicula para añadir a esta página</strong><br/>
+                    <strong class="pasos">3. Si hay algo que no encuentras, prueba a añadirlo tú mismo desde "Añadir Contenido"</strong>
+                </div>
             </div>
         </section>
+
+    {% if messages %}
+        {% for message in messages %}
+            <br/>
+            <div class="message1">
+            <article class="message is-warning">
+                 <div class="message-body">{{ message }}</div>
+             </article></div>
+         {% endfor %}
+    {% endif %}
+
   <!-- Stats Gallery Section -->
     <div class="gallery">
 
@@ -55,4 +72,14 @@
       {% endfor %}
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    setTimeout(function() {
+     $(".message1").fadeOut(1500);
+      },5000);
+});
+</script>
+
 {% endblock %}

@@ -6133,9 +6133,6 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   flex-shrink: 0;
 }
 
-.navbar-item img {
-  max-height: 1.75rem;
-}
 
 .navbar-item.has-dropdown {
   padding: 0;

@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
@@ -20,7 +21,8 @@ def mainlogin(request):
             return HttpResponseRedirect(reverse('mainpage:inicio'))
     return render(request, 'login/login.html', data)
 
-#parece que funciona
+
+# parece que funciona
 def logout_home(request):
     logout(request)
     return HttpResponseRedirect(reverse('login:mainlogin'))
@@ -38,6 +40,6 @@ def RegistroUsuario(request):
             user = authenticate(username=formulario.cleaned_data['username'],
                                 password=formulario.cleaned_data['password1'])
             login(request, user)
-            return HttpResponseRedirect(reverse('login:mainlogin'))
+            return HttpResponseRedirect(reverse('mainpage:inicio'))
         data['form'] = formulario
     return render(request, 'login/registro.html', data)

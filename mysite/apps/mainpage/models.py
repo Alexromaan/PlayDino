@@ -17,7 +17,7 @@ class Series(models.Model):
     name = models.CharField(max_length=100)
     season = models.IntegerField(default=1)
     chapter = models.IntegerField(default=1)
-    image = models.ImageField(upload_to='static/media', default='default.png')
+    image = models.ImageField(upload_to='static/media/', default='default.png')
 
     def __str__(self):
         return self.name
@@ -28,7 +28,7 @@ class Films(models.Model):
     user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     time = models.CharField(max_length=100, default="00:00:00")
-    image = models.ImageField(upload_to='static/media', default='default.png')
+    image = models.ImageField(upload_to='static/media/', default='default.png')
 
     def __str__(self):
         return self.name
@@ -53,3 +53,13 @@ class Fetch(models.Model):
 
     def __srt__(self):
         return self.title
+
+
+# esta es la imagen de perfil de cada usuario
+class Image(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='static/media/', default='DefaultImageDino.png')
+
+    def __srt__(self):
+        return self.user

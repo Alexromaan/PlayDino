@@ -1,7 +1,73 @@
 {% extends 'mainpage/mainpage_base.html' %}
+{% load static %}
 {% block title %}
     Perfil de Usuario
 {% endblock %}
 
 {% block content %}
+    <section class="intro">
+        <div class="column">
+            <h1>{{ user.username.upper }}</h1>
+            <h3>ESTE ES TU PERFIL DE USUARIO, USANDO EL BOTÓN DE ABAJO PUEDES MODIFICAR LOS DATOS</h3>
+        </div>
+
+        <div class="columns is-mobile" style="margin: 1% 20% 0;">
+            {% for imagen in image %}
+            <figure class="image">
+                <img class="" src="http://127.0.0.1:8000/{{ imagen.image }}" alt="profile image">
+            </figure>
+            {% endfor %}
+         <form name="f1" id="f1" method="post" enctype="multipart/form-data" style="margin-left: 5%; width: 100%">
+             {% csrf_token %}
+                    <div class="field"><label for="first_name">Nombre</label>
+                        <input disabled id="first_name" type="text" name="name" class="input" value="{{user.first_name}}">
+                    </div>
+                    <div class="field"><label for="last_name">Apellidos</label>
+                        <input disabled id="last_name" type="text" name="chapter" class="input" value="{{user.last_name}}">
+                    </div>
+                    <div class="field"><label for="email">Correo Electrónico</label>
+                        <input disabled id="email" type="text" name="season" class="input"  value="{{user.email}}">
+                    </div>
+             <div style="text-align: right">
+                 <a id="cancel" class="button is-danger is-inverted is-rounded" href="{% url 'mainpage:perfil' %}"
+                 style="display:none">
+                     Cancelar
+                 </a>
+                 <button id='save' class="button is-primary is-inverted is-rounded" type="submit" style="display:none">
+                     Guardar Cambios
+                 </button>
+            </div>
+        </form>
+        </div>
+        <div style="text-align: right; margin-right: 20%">
+            <button id='editor' class="button is-primary is-inverted is-rounded" onclick="toggle()">EDITAR</button>
+        </div>
+
+</section>
+
+<script>
+function toggle() {
+    let field = document.getElementById("first_name")
+    if (field.disabled === true){
+        field.disabled = false;
+        document.getElementById("last_name").disabled = false;
+        document.getElementById("email").disabled = false;
+        document.getElementById("cancel").style.display = 'inline-block';
+        document.getElementById("save").style.display = 'inline-block';
+        document.getElementById("editor").style.display = 'none';
+    }
+    else {
+        field.disabled = true;
+        document.getElementById("last_name").disabled = true;
+        document.getElementById("email").disabled = true;
+
+    }
+
+
+}
+</script>
+
+
+
+
 {% endblock %}

@@ -1,11 +1,11 @@
-import requests
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from .imdb import search, search_by_id
-from .models import Series, Films, Fetch
-from apps.login.forms import AddSerie, AddFilm
+from .models import Series, Films, Fetch, Image
+from apps.login.forms import AddSerie, AddFilm, UserChangeForm
 
 
 # Create your views here.
@@ -20,7 +20,18 @@ def inicio(request):
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
 def perfil(request):
-    return render(request, 'mainpage/perfil.html')
+    usuario = request.user
+    image = Image.objects.filter(user=usuario)
+    ctx = {
+        'usuario': usuario,
+        'image': image
+    }
+    if request.method == 'POST':
+        form = UserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect(to='mainpage:perfil')
+    return render(request, 'mainpage/perfil.html', ctx)
 
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
@@ -156,12 +167,12 @@ def fetch(request):
             # en el caso de que la api no encuentre nada, mando este mensaje
             data = {'name': "No se han encontrado resultados para: ", 'keyword': keyword}
             return render(request, 'mainpage/fetch.html', data)
-    #este return es para cuando el request:method = GET, va sin parametros
+    # este return es para cuando el request:method = GET, va sin parametros
     return render(request, 'mainpage/fetch.html')
 
 
 def save_fetch(request, pk):
-    #saco todos los datos de la pelicula/serie elegida y compruebo su tipo de contenido
+    # saco todos los datos de la pelicula/serie elegida y compruebo su tipo de contenido
     json = search_by_id(pk)
 
     if json['Type'] == "movie":
@@ -171,6 +182,7 @@ def save_fetch(request, pk):
             image=json['Poster']
         )
         nueva_peli.save()
+        messages.success(request, 'HAS AÑADIDO LA PELÍCULA CORRECTAMENTE')
         return redirect(to='mainpage:inicio')
 
     if json['Type'] == "series":
@@ -180,5 +192,7 @@ def save_fetch(request, pk):
             image=json['Poster'],
         )
         nueva_serie.save()
+        messages.success(request, 'HAS AÑADIDO LA SERIE CORRECTAMENTE')
         return redirect(to='mainpage:inicio')
-    return render(request, 'mainpage/inicio.html')
+    messages.error(request, 'NO SE HA PODIDO AÑADIR')
+    return redirect(to='mainpage:inicio')
