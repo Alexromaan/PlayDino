@@ -6,6 +6,15 @@
 
 {% block content %}
     <section class="intro">
+        {% if messages %}
+            {% for message in messages %}
+            <div class="message1">
+                <article class="message is-primary is-inverted">
+                    <div class="message-body">{{ message }}</div>
+                </article></div>
+            {% endfor %}
+        {% endif %}
+
         <div class="column">
             <h1>{{ user.username.upper }}</h1>
             <h3>ESTE ES TU PERFIL DE USUARIO, USANDO EL BOTÓN DE ABAJO PUEDES MODIFICAR LOS DATOS</h3>
@@ -15,11 +24,11 @@
         <div class="columns is-mobile" style="margin: 1% 20% 0;">
             {% if image %}
             <figure class="image">
-                <img class="" src="http://127.0.0.1:8000/{{ image.image }}" alt="profile image">
+                <img class="" src="{{ image.image }}" alt="profile image">
             </figure>
             {% else %}
             <figure class="image">
-                <img class="" src="http://127.0.0.1:8000/static/media/default.png" alt="profile image">
+                <img class="" src="/static/media/default.png" alt="profile image">
             </figure>
             {% endif %}
 
@@ -55,6 +64,11 @@
             <button id='editor' class="button is-primary is-inverted is-rounded" onclick="toggle()">EDITAR</button>
         </div>
 
+        <div style="text-align: center; margin-top: 2%">
+            <button class="button is-warning is-light" style="margin-right: 2%; width: 40%">Cambiar Nombre de Usuario</button>
+            <button class="button is-warning is-light" style="width: 40%">Cambiar Contraseña</button>
+        </div>
+
 </section>
 
 
@@ -81,6 +95,13 @@ function toggle() {
 </script>
 
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    setTimeout(function() {
+     $(".message1").fadeOut(1500);
+      },4000);
+});
+</script>
 
 {% endblock %}

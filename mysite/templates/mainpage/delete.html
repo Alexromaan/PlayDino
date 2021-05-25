@@ -8,9 +8,9 @@
                 <form method="post">
                     {% csrf_token %}
                     <h1>¿Desea eliminar {{ serie.name }} {{ film.name }}?</h1>
-                    <div style="padding-left: 40%">
-                        <button type="submit" class="button is-danger">CONFIRMAR</button>
-                        <a class="button" href="{% url 'mainpage:inicio' %}">Volver a Inicio</a>
+                    <div style="text-align: center; margin-top: 2%">
+                        <button style="margin-right: 1%" type="submit" class="button is-primary is-inverted is-rounded">CONFIRMAR</button>
+                        <a class="button is-danger is-rounded is-inverted" href="{% url 'mainpage:inicio' %}">Volver a Inicio</a>
                     </div>
                 </form>
              </div>

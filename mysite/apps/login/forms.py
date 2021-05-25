@@ -67,3 +67,9 @@ class AddFilm(forms.Form):
         widget=forms.TextInput(attrs={'required': 'True', 'class': 'input', 'placeholder': '01:45:50'}))
 
     image = forms.ImageField(required=False)
+
+
+class NewNote(forms.Form):
+    id_nota = forms.IntegerField()
+    type_nota = forms.CharField()
+    nota_text = forms.CharField()

@@ -7,9 +7,9 @@
     <div class="container">
         <section class="intro">
             <div class="column">
-                <h3 class="title is-size-3" style="text-align: center; color: rgb(0, 0, 0)">
+                <h3 class="title is-size-3" style="text-align: center; color: white">
                     AQUÍ PODRÁS ENCONTRAR CONTENIDO PARA TU PERFIL</h3>
-                <h4 class="tittle is-size-5" style="text-align: center; color: rgb(0, 0, 0) ">
+                <h4 class="tittle is-size-5" style="text-align: center; color: white ">
                    Prueba a buscar el nombre de una pelicula o serie </h4>
                 <form method="post">
                     {% csrf_token %}
@@ -39,7 +39,7 @@
               <br/>
               <p class="thumbtittle">{{result.title}}</p>
               <br/>
-              <a href="{% url 'mainpage:save' result.imdb %}" class="button is-primary">Añadir</a>
+              <a href="{% url 'mainpage:save' result.imdb %}" class="button is-primary is-rounded">Añadir</a>
           </div>
       {% endfor %}
     </div>

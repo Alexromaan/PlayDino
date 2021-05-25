@@ -7,14 +7,17 @@ from .imdb import search, search_by_id
 from .models import Series, Films, Fetch, Image
 from apps.login.forms import AddSerie, AddFilm, UserChangeForm
 
-
 # Create your views here.
+from ..login.forms import NewNote
+
+
 @login_required(login_url=reverse_lazy('login:mainlogin'))
 def inicio(request):
+    notas_form = NewNote()
     usuario = request.user
     series = Series.objects.filter(user=usuario)
     films = Films.objects.filter(user=usuario)
-    context = {'series': series, 'films': films}
+    context = {'series': series, 'films': films, 'form': notas_form}
     return render(request, 'mainpage/inicio.html', context)
 
 
@@ -32,6 +35,7 @@ def perfil(request):
         form = UserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
+            messages.success(request, 'CAMPO(S) MODIFICADOS CON ÉXITO')
             return redirect(to='mainpage:perfil')
     return render(request, 'mainpage/perfil.html', ctx)
 
@@ -68,6 +72,7 @@ def add(request):
     return render(request, 'mainpage/add.html', data)
 
 
+@login_required(login_url=reverse_lazy('login:mainlogin'))
 def delete_serie(request, pk):
     serie = Series.objects.get(id=pk)
     if request.method == 'POST':
@@ -76,6 +81,7 @@ def delete_serie(request, pk):
     return render(request, 'mainpage/delete.html', {'serie': serie})
 
 
+@login_required(login_url=reverse_lazy('login:mainlogin'))
 def edit_serie(request, pk):
     serie = Series.objects.get(id=pk)
     data = {
@@ -100,6 +106,7 @@ def edit_serie(request, pk):
     return render(request, 'mainpage/edit_serie.html', data)
 
 
+@login_required(login_url=reverse_lazy('login:mainlogin'))
 def delete_film(request, pk):
     film = Films.objects.get(id=pk)
     if request.method == 'POST':
@@ -108,6 +115,7 @@ def delete_film(request, pk):
     return render(request, 'mainpage/delete.html', {'film': film})
 
 
+@login_required(login_url=reverse_lazy('login:mainlogin'))
 def edit_film(request, pk):
     film = Films.objects.get(id=pk)
     data = {
@@ -131,10 +139,7 @@ def edit_film(request, pk):
     return render(request, 'mainpage/edit_film.html', data)
 
 
-def add_note(request):
-    return request
-
-
+@login_required(login_url=reverse_lazy('login:mainlogin'))
 def fetch(request):
     # Aqui trabajaremos con la api de IMDB por lo que hago el parametro global
     global data
@@ -173,6 +178,7 @@ def fetch(request):
     return render(request, 'mainpage/fetch.html')
 
 
+@login_required(login_url=reverse_lazy('login:mainlogin'))
 def save_fetch(request, pk):
     # saco todos los datos de la pelicula/serie elegida y compruebo su tipo de contenido
     json = search_by_id(pk)
@@ -197,4 +203,29 @@ def save_fetch(request, pk):
         messages.success(request, 'HAS AÑADIDO LA SERIE CORRECTAMENTE')
         return redirect(to='mainpage:inicio')
     messages.error(request, 'NO SE HA PODIDO AÑADIR')
+    return redirect(to='mainpage:inicio')
+
+
+@login_required(login_url=reverse_lazy('login:mainlogin'))
+def add_note(request):
+    if request.method == 'POST':
+        nueva_nota = NewNote(request.POST)
+
+        if nueva_nota.is_valid():
+            id_nota = nueva_nota.cleaned_data['id_nota']
+            nota = nueva_nota.cleaned_data['nota_text']
+            type = nueva_nota.cleaned_data['type_nota']
+
+            if type == 'serie' :
+                serie = Series.objects.get(id=id_nota)
+                serie.nota = nota
+                serie.save()
+                messages.success(request, 'Nota añadida con éxito')
+
+            if type == 'pelicula':
+                film = Films.objects.get(id=id_nota)
+                film.nota = nota
+                film.save()
+                messages.success(request, 'Nota añadida con éxito')
+
     return redirect(to='mainpage:inicio')

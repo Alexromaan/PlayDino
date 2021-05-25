@@ -8,6 +8,16 @@
     <div class="container">
   <!-- Hero Section -->
         <section class="intro">
+            {% if messages %}
+                {% for message in messages %}
+                    <br/>
+                    <div class="message1">
+                    <article class="message is-primary is-inverted">
+                         <div class="message-body">{{ message }}</div>
+                     </article></div>
+                 {% endfor %}
+            {% endif %}
+
             <div class="column">
                 <h1>Bienvenido {{ user }}</h1>
                 <hr style="width: 80%; margin-left: 10% !important; "/>
@@ -19,16 +29,6 @@
                 </div>
             </div>
         </section>
-
-    {% if messages %}
-        {% for message in messages %}
-            <br/>
-            <div class="message1">
-            <article class="message is-warning">
-                 <div class="message-body">{{ message }}</div>
-             </article></div>
-         {% endfor %}
-    {% endif %}
 
   <!-- Stats Gallery Section -->
     <div class="gallery">
@@ -42,14 +42,15 @@
               <br/>
               <p class="thumbtittle">{{serie.name}}</p>
 
-              <p><strong>Capítulo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ serie.chapter }}</p>
+              <p><strong>Capítulo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ serie.chapter }}</p>
               <p><strong>Temporada:&nbsp;</strong>{{ serie.season }}</p>
               <br/>
 
-              <a href="{% url 'mainpage:editar serie' serie.id %}" class="button is-primary">Editar</a>
-              <a href="{% url 'mainpage:eliminar serie' serie.id %}" class="button is-danger">Eliminar</a>
-              <a href="{% url 'mainpage:editar serie' serie.id %}" class="button is-warning"
-                 style="margin-top:1px ;color: white; width: auto">Añadir nota</a>
+              <a href="{% url 'mainpage:editar serie' serie.id %}" class="button is-primary is-rounded">Editar</a>
+              <button type="button" class="button is-warning is-rounded"
+                      onclick="modalTrigger({{serie.id}}, 'serie', '{{serie.nota}}')"
+                      style="margin-top:1px;color:white; width: auto">Notas</button>
+              <a href="{% url 'mainpage:eliminar serie' serie.id %}" class="button is-danger is-rounded">Eliminar</a>
           </div>
       {% endfor %}
 
@@ -61,15 +62,57 @@
               <br/>
               <p class="thumbtittle">{{peli.name}}</p>
 
-              <p style="width: auto"><strong>Minuto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ peli.time }}</p>
+              <p style="width: auto"><strong>Minuto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{ peli.time}}</p>
               <br/>
 
-              <a href="{% url 'mainpage:editar pelicula' peli.id %}" class="button is-primary">Editar</a>
-              <a href="{% url 'mainpage:eliminar pelicula' peli.id %}" class="button is-danger">Eliminar</a>
-              <a href="{% url 'mainpage:editar pelicula' peli.id %}" class="button is-warning"
-                 style="margin-top:1px ;color: white; width: auto">Añadir nota</a>
+              <a href="{% url 'mainpage:editar pelicula' peli.id %}" class="button is-primary is is-rounded ">Editar</a>
+              <button  type="button" class="button is-warning is-rounded"
+                       onclick="modalTrigger({{peli.id}}, 'pelicula', '{{peli.nota}}')"
+                       style="margin-top:1px;color:white; width: auto">Notas</button>
+              <a href="{% url 'mainpage:eliminar pelicula' peli.id %}" class="button is-danger is is-rounded">Eliminar</a>
           </div>
       {% endfor %}
+  </div>
+</div>
+
+<!--Bulma modal-->
+<div class="modal" id="modal notes">
+  <div class="modal-background" onclick="modalTrigger()"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+      <div class="modal-content">
+            <div class="modal-card">
+                <header class="modal-card-head" style="background-color: #00d1b2">
+                    <img alt="logo" src="/static/media/LogoAleAPrisa.png" height="60px" style="height: 60px !important">
+                    <h1 class="modal-card-title" style="padding-left: 2%"><strong style="color: white">
+                        TUS NOTAS</strong>
+                    </h1>
+                    <button id="close_comment_modal" class="delete" aria-label="close"
+                            onclick="modalTrigger()"></button>
+                </header>
+
+                <form method="post" action="{% url 'mainpage:añadir nota' %}">
+                    {% csrf_token %}
+                    <section class="modal-card-body">
+                        <div class="columns is-centered">
+                            <div class="column has-text-centered">
+                                <div class="label"></div>
+                                <label for="id_nota"><input name="id_nota" id="id_nota" style="display: none"></label>
+                                <label for="type_nota"><input name="type_nota" id="type_nota" style="display: none"></label>
+                                <textarea class="textarea add_comment_field" id="nota_text" name="nota_text"></textarea>
+                            </div>
+                        </div>
+
+                    </section>
+                    <footer class="modal-card-foot" style="background-color: #00d1b2">
+                        <button type="submit" class="button is-primary is-rounded is-inverted">Comentar</button>
+                        <button class="button is-danger is-rounded is-inverted" type="button" onclick="modalTrigger()">
+                            Cancelar
+                        </button>
+                    </footer>
+                </form>
+            </div>
+      </div>
   </div>
 </div>
 
@@ -78,8 +121,25 @@
     $(document).ready(function() {
     setTimeout(function() {
      $(".message1").fadeOut(1500);
-      },5000);
+      },4000);
 });
+</script>
+<script>
+    let modal = document.getElementById("modal notes")
+
+    function modalTrigger(pk, type, text){
+        if (modal.className === "modal is-active") {
+            modal.className = "modal"
+            document.getElementById("id_nota").value = "";
+            document.getElementById("type_nota").value = "";
+            document.getElementById("nota_text").value = "";
+        } else {
+            modal.className = "modal is-active";
+            document.getElementById("id_nota").value = pk;
+            document.getElementById("type_nota").value = type ;
+            document.getElementById("nota_text").value = text;
+        }
+    }
 </script>
 
 {% endblock %}

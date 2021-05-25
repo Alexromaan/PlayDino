@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('perfil/', views.perfil, name='perfil'),
     path('añadir/', views.add, name='añadir'),
+    path('añadir_nota/', views.add_note, name='añadir nota'),
     # rutas del buscador de la API
     path('buscar/', views.fetch, name='buscar'),
     path('save/<str:pk>', views.save_fetch, name='save'),
