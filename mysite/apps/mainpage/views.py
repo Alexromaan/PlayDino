@@ -1,9 +1,12 @@
+from django import forms
 from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
+from django.contrib.auth.forms import PasswordChangeForm
 from .imdb import search, search_by_id
 from .models import Series, Films, Fetch, Image
 from apps.login.forms import AddSerie, AddFilm, UserChangeForm
@@ -27,12 +30,12 @@ def perfil(request):
     usuario = request.user
     image = Image.objects.filter(user=usuario)
     user_form = UserChangeForm(instance=request.user)
-    username_form = UsernameForm()
+    password_form = PasswordChangeForm(request.user)
     ctx = {
         'usuario': usuario,
         'image': image,
         'form': user_form,
-        'username_form': username_form
+        'password_form': password_form
     }
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
@@ -243,4 +246,21 @@ def change_username(request):
             user = User.objects.get(username=request.user.username)
             user.username = newusername
             user.save()
+            messages.success(request, 'Nombre de usuario actualizado con éxito')
+        else:
+            messages.error(request,'El nombre de usuario ya está en uso.')
+    return redirect(to='mainpage:perfil')
+
+
+@login_required(login_url=reverse_lazy('login:mainlogin'))
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'La contraseña se ha cambiado con éxito!')
+            return redirect(to='mainpage:perfil')
+        else:
+            messages.error(request, 'Campo(s) introducidos incorrectos.')
     return redirect(to='mainpage:perfil')

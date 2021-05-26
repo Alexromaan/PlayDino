@@ -12,7 +12,7 @@ class Permissions:
 
 class Series(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.CharField(max_length=90, null=True)
+    user = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     season = models.IntegerField(default=1)
     chapter = models.IntegerField(default=1)
@@ -25,7 +25,7 @@ class Series(models.Model):
 
 class Films(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.CharField(max_length=90, null=True)
+    user = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     time = models.CharField(max_length=100, default="00:00:00")
     image = models.ImageField(upload_to='static/media/', default='default.png')
@@ -50,7 +50,7 @@ class Fetch(models.Model):
 # esta es la imagen de perfil de cada usuario
 class Image(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.CharField(max_length=90, unique=True, null=True)
+    user = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='static/media/', default='DefaultImageDino.png')
 
     def __srt__(self):
