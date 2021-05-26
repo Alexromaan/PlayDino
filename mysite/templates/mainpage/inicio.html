@@ -38,7 +38,11 @@
           <div class="thumbnail" style="padding-top: 0 !important;">
            <p style="text-align: center;background-color: #00d1b2; padding-left: 0 !important;"><strong>SERIE</strong></p>
               <br/>
+              {% if serie.image %}
               <a><img src="{{ serie.image }}"  alt="Imagen no disponible" class="cards"/></a>
+              {% else %}
+              <a><img src="/static/media/default.png"  alt="Imagen no disponible" class="cards"/></a>
+              {% endif %}
               <br/>
               <p class="thumbtittle">{{serie.name}}</p>
 
@@ -58,7 +62,11 @@
           <div class="thumbnail" style="padding-top: 0 !important;">
            <p style="text-align: center;background-color: #00d1b2; padding-left: 0 !important;"><strong>MOVIE</strong></p>
               <br/>
+              {% if peli.image %}
               <a><img src="{{ peli.image }}"  alt="Imagen no disponible" class="cards"/></a>
+              {% else %}
+              <a><img src="/static/media/default.png"  alt="Imagen no disponible" class="cards"/></a>
+              {% endif %}
               <br/>
               <p class="thumbtittle">{{peli.name}}</p>
 

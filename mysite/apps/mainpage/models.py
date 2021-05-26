@@ -51,7 +51,7 @@ class Fetch(models.Model):
 class Image(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, null=True)
-    image = models.ImageField(upload_to='static/media/', default='DefaultImageDino.png')
+    image = models.ImageField(upload_to='static/media/profile', default='default.png')
 
     def __srt__(self):
         return self.user

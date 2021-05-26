@@ -12,7 +12,7 @@ from .models import Series, Films, Fetch, Image
 from apps.login.forms import AddSerie, AddFilm, UserChangeForm
 
 # Create your views here.
-from ..login.forms import NewNote, UsernameForm
+from ..login.forms import NewNote, UsernameForm, NewImage
 
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
@@ -31,12 +31,19 @@ def perfil(request):
     image = Image.objects.filter(user=usuario)
     user_form = UserChangeForm(instance=request.user)
     password_form = PasswordChangeForm(request.user)
-    ctx = {
+    if image.exists():
+        ctx = {
         'usuario': usuario,
-        'image': image,
+        'image': Image.objects.get(user=usuario),
         'form': user_form,
         'password_form': password_form
-    }
+        }
+    else:
+        ctx = {
+            'usuario': usuario,
+            'form': user_form,
+            'password_form': password_form
+        }
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -263,4 +270,27 @@ def change_password(request):
             return redirect(to='mainpage:perfil')
         else:
             messages.error(request, 'Campo(s) introducidos incorrectos.')
+    return redirect(to='mainpage:perfil')
+
+
+@login_required(login_url=reverse_lazy('login:mainlogin'))
+def set_image(request):
+    if request.method == 'POST':
+        form = NewImage(request.POST, request.FILES)
+        if form.is_valid():
+            newimage = form.cleaned_data['image']
+
+            if Image.objects.filter(user=request.user).exists():
+                current_image = Image.objects.get(user=request.user)
+                current_image.image = newimage
+                current_image.save()
+                messages.success(request, 'Foto de Perfil actualizada con éxito!')
+            else:
+                image = Image(
+                    user=request.user,
+                    image=newimage
+                )
+                image.save()
+        else:
+            messages.error(request,'Imagen no válida.')
     return redirect(to='mainpage:perfil')

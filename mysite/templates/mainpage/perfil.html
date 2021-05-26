@@ -24,7 +24,8 @@
         <div class="columns is-mobile" style="margin: 1% 20% 0;">
             {% if image %}
             <figure class="image">
-                <img class="" src="{{ image.image }}" alt="profile image">
+                <img class="is-rounded" style="min-width: 226px; max-width: 230px; min-height: 226px; max-height: 230px "
+                     src="/{{ image.image }}" alt="profile image">
             </figure>
             {% else %}
             <figure class="image">
@@ -65,17 +66,22 @@
         </div>
 
         <div style="text-align: center; margin-top: 2%">
-            <button class="button is-warning is-light" onclick="modalTrigger()" style="margin-right: 2%; width: 40%">Cambiar Nombre de Usuario</button>
-            <button class="button is-warning is-light" onclick="modalpasswordTrigger()" style="width: 40%">Cambiar Contraseña</button>
+            <button class="button is-warning is-light" onclick="modalimageTrigger()"
+                    style="width: 30%; min-width: 220px">Cambiar Foto de Perfil</button>
+
+            <button class="button is-warning is-light" onclick="modalTrigger()"
+                    style="margin: 0 2% 0; width: 30%; min-width: 220px">Cambiar Nombre de Usuario</button>
+
+            <button class="button is-warning is-light" onclick="modalpasswordTrigger()"
+                    style="width: 30%; min-width: 220px">Cambiar Contraseña</button>
         </div>
 
 </section>
 
-<!--Bulma modal-->
+<!--Bulma modal for username-->
 <div class="modal" id="modal">
   <div class="modal-background" onclick="modalTrigger()"></div>
   <div class="modal-content">
-    <!-- Any other Bulma elements you want -->
       <div class="modal-content">
             <div class="modal-card">
                 <header class="modal-card-head" style="background-color: #00d1b2">
@@ -116,11 +122,10 @@
 </div>
 
 
-<!--Bulma modal-->
+<!--Bulma modal for password-->
 <div class="modal" id="modalpassword">
   <div class="modal-background" onclick="modalpasswordTrigger()"></div>
   <div class="modal-content">
-    <!-- Any other Bulma elements you want -->
       <div class="modal-content">
             <div class="modal-card">
                 <header class="modal-card-head" style="background-color: #00d1b2">
@@ -170,10 +175,51 @@
   </div>
 </div>
 
+<!--Bulma modal for image-->
+<div class="modal" id="modalimage">
+  <div class="modal-background" onclick="modalimageTrigger()"></div>
+  <div class="modal-content">
+      <div class="modal-content">
+            <div class="modal-card">
+                <header class="modal-card-head" style="background-color: #00d1b2">
+                    <img alt="logo" src="/static/media/LogoAleAPrisa.png" height="60px" style="height: 60px !important">
+                    <h1 class="modal-card-title" style="padding-left: 2%"><strong style="color: white">
+                        Cambiar Foto de Perfil</strong>
+                    </h1>
+                    <button id="close_image_modal" class="delete" aria-label="close"
+                            onclick="modalimageTrigger()"></button>
+                </header>
+
+                <form method="post" action="{% url 'mainpage:set image' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <section class="modal-card-body">
+                        <div class="columns is-centered">
+                            <div class="column has-text-centered">
+                                <div class="field">
+                                    <label  for="id_image"></label>
+                                    <input class="file-label" type="file" name="image" id="id_image" style="margin-top: 2%">
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <footer class="modal-card-foot" style="background-color: #00d1b2">
+                        <button type="submit" class="button is-primary is-rounded is-inverted">Guardar</button>
+                        <button class="button is-danger is-rounded is-inverted" type="button" onclick="modalimageTrigger()">
+                            Cancelar
+                        </button>
+                    </footer>
+                </form>
+            </div>
+      </div>
+  </div>
+</div>
+
 
 <script>
 let modal = document.getElementById("modal")
 let modalpassword = document.getElementById("modalpassword")
+let modalimage = document.getElementById("modalimage")
 
 function modalTrigger(){
         if (modal.className === "modal is-active") {
@@ -183,11 +229,19 @@ function modalTrigger(){
         }
     }
 
-    function modalpasswordTrigger(){
+function modalpasswordTrigger(){
         if (modalpassword.className === "modal is-active") {
             modalpassword.className = "modal"
         } else {
             modalpassword.className = "modal is-active";
+        }
+    }
+
+function modalimageTrigger(){
+        if (modalimage.className === "modal is-active") {
+            modalimage.className = "modal"
+        } else {
+            modalimage.className = "modal is-active";
         }
     }
 

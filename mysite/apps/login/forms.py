@@ -83,3 +83,7 @@ class NewNote(forms.Form):
     id_nota = forms.IntegerField()
     type_nota = forms.CharField()
     nota_text = forms.CharField()
+
+
+class NewImage(forms.Form):
+    image = forms.ImageField()
