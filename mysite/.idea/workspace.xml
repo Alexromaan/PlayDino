@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="arrgelados todos los warning de codigo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/login/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainpage/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/inicio.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mainpage/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage/perfil.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +123,8 @@
       <workItem from="1621845911878" duration="29709000" />
       <workItem from="1621878411325" duration="10732000" />
       <workItem from="1621894984987" duration="341000" />
+      <workItem from="1622056485663" duration="977000" />
+      <workItem from="1622061182121" duration="1673000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>

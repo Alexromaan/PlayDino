@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -18,6 +19,8 @@ def mainlogin(request):
                                 password=formulario.cleaned_data['password'])
             login(request, user)
             return HttpResponseRedirect(reverse('mainpage:inicio'))
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos.')
     return render(request, 'login/login.html', data)
 
 

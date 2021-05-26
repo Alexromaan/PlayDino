@@ -6,18 +6,18 @@
 
 {% block content %}
     <div class="container">
-  <!-- Hero Section -->
-        <section class="intro">
-            {% if messages %}
+        {% if messages %}
                 {% for message in messages %}
-                    <br/>
-                    <div class="message1">
+                    <div class="message1" style="z-index: 1; position: absolute; width: 100%; margin-bottom: 2%">
                     <article class="message is-primary is-inverted">
                          <div class="message-body">{{ message }}</div>
                      </article></div>
                  {% endfor %}
             {% endif %}
+  <!-- Hero Section -->
 
+        <section class="intro">
+        <br/>
             <div class="column">
                 <h1>Bienvenido {{ user }}</h1>
                 <hr style="width: 80%; margin-left: 10% !important; "/>

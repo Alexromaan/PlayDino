@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
     <script src="{% static 'js/Navbar.js' %}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
@@ -49,9 +50,7 @@
 
 {% endblock %}
 
-
-
-<footer class="footer" style="position:absolute ;bottom:0; width:100%;">
+<footer class="footer">
   <div class="content has-text-centered">
     <p>
       <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed

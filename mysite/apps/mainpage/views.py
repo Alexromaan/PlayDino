@@ -69,6 +69,7 @@ def add(request):
                 image=formulary1.cleaned_data['image'],
             )
             nueva_peli.save()
+            messages.success(request, 'Añadido con éxito')
             return redirect(to='mainpage:inicio')
 
         formulary2 = AddSerie(request.POST, request.FILES)
@@ -81,6 +82,7 @@ def add(request):
                 image=formulary2.cleaned_data['image'],
             )
             nueva_serie.save()
+            messages.success(request, 'Añadido con éxito')
             return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/add.html', data)
 

@@ -8,13 +8,13 @@
     <section class="intro">
         {% if messages %}
             {% for message in messages %}
-            <div class="message1">
+            <div class="message1" style="position: absolute; width: 100%">
                 <article class="message is-primary is-inverted">
                     <div class="message-body">{{ message }}</div>
                 </article></div>
             {% endfor %}
         {% endif %}
-
+        <br/>
         <div class="column">
             <h1>{{ user.username.upper }}</h1>
             <h3>ESTE ES TU PERFIL DE USUARIO, USANDO EL BOTÓN DE ABAJO PUEDES MODIFICAR LOS DATOS</h3>
