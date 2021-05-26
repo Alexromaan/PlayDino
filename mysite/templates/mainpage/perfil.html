@@ -65,14 +65,66 @@
         </div>
 
         <div style="text-align: center; margin-top: 2%">
-            <button class="button is-warning is-light" style="margin-right: 2%; width: 40%">Cambiar Nombre de Usuario</button>
+            <button class="button is-warning is-light" onclick="modalTrigger()" style="margin-right: 2%; width: 40%">Cambiar Nombre de Usuario</button>
             <button class="button is-warning is-light" style="width: 40%">Cambiar Contraseña</button>
         </div>
 
 </section>
 
+<!--Bulma modal-->
+<div class="modal" id="modal">
+  <div class="modal-background" onclick="modalTrigger()"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+      <div class="modal-content">
+            <div class="modal-card">
+                <header class="modal-card-head" style="background-color: #00d1b2">
+                    <img alt="logo" src="/static/media/LogoAleAPrisa.png" height="60px" style="height: 60px !important">
+                    <h1 class="modal-card-title" style="padding-left: 2%"><strong style="color: white">
+                        Cambiar Nombre de Usuario</strong>
+                    </h1>
+                    <button id="close_comment_modal" class="delete" aria-label="close"
+                            onclick="modalTrigger()"></button>
+                </header>
+
+                <form method="post" action="{% url 'mainpage:cambiar user' %}">
+                    {% csrf_token %}
+                    <section class="modal-card-body">
+                        <div class="columns is-centered">
+                            <div class="column has-text-centered">
+                                {% for fields in username_form %}
+                                    {{fields}}
+                                {% endfor %}
+                                {% for fields in password_form %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </section>
+                    <footer class="modal-card-foot" style="background-color: #00d1b2">
+                        <button type="submit" class="button is-primary is-rounded is-inverted">Guardar</button>
+                        <button class="button is-danger is-rounded is-inverted" type="button" onclick="modalTrigger()">
+                            Cancelar
+                        </button>
+                    </footer>
+                </form>
+            </div>
+      </div>
+  </div>
+</div>
+
 
 <script>
+let modal = document.getElementById("modal")
+
+function modalTrigger(){
+        if (modal.className === "modal is-active") {
+            modal.className = "modal"
+        } else {
+            modal.className = "modal is-active";
+        }
+    }
+
 function toggle() {
     let field = document.getElementById("id_first_name")
     if (field.disabled === true){

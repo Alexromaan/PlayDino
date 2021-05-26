@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
@@ -8,7 +9,7 @@ from .models import Series, Films, Fetch, Image
 from apps.login.forms import AddSerie, AddFilm, UserChangeForm
 
 # Create your views here.
-from ..login.forms import NewNote
+from ..login.forms import NewNote, UsernameForm
 
 
 @login_required(login_url=reverse_lazy('login:mainlogin'))
@@ -26,10 +27,12 @@ def perfil(request):
     usuario = request.user
     image = Image.objects.filter(user=usuario)
     user_form = UserChangeForm(instance=request.user)
+    username_form = UsernameForm()
     ctx = {
         'usuario': usuario,
         'image': image,
         'form': user_form,
+        'username_form': username_form
     }
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
@@ -216,7 +219,7 @@ def add_note(request):
             nota = nueva_nota.cleaned_data['nota_text']
             type = nueva_nota.cleaned_data['type_nota']
 
-            if type == 'serie' :
+            if type == 'serie':
                 serie = Series.objects.get(id=id_nota)
                 serie.nota = nota
                 serie.save()
@@ -229,3 +232,15 @@ def add_note(request):
                 messages.success(request, 'Nota añadida con éxito')
 
     return redirect(to='mainpage:inicio')
+
+
+@login_required(login_url=reverse_lazy('login:mainlogin'))
+def change_username(request):
+    if request.method == 'POST':
+        form = UsernameForm(request.POST)
+        if form.is_valid():
+            newusername = form.cleaned_data['username']
+            user = User.objects.get(username=request.user.username)
+            user.username = newusername
+            user.save()
+    return redirect(to='mainpage:perfil')

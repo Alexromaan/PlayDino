@@ -39,6 +39,16 @@ class UserChangeForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'email')
 
 
+class UsernameForm(forms.ModelForm):
+    """A form for updating users. Includes all the fields on
+    the user, but replaces the password field with admin's
+    disabled password hash display field.
+    """
+    class Meta:
+        model = User
+        fields = ('username',)
+
+
 class LoginForm(AuthenticationForm):
     username = UsernameField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre de Usuario'})
