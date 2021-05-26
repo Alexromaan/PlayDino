@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class CustomUserCreationForm(UserCreationForm):
     username = UsernameField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True,
-                                      'placeholder': 'Usuario: El que usarás para iniciar sesión'})
+                                      'placeholder': 'Nombre de Usuario (lo usarás para iniciar sesión)'})
     )
     first_name = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Nombre'})
@@ -16,7 +16,7 @@ class CustomUserCreationForm(UserCreationForm):
         widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Apellidos'})
     )
     email = forms.EmailField(
-        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'email'})
+        widget=forms.TextInput(attrs={'class': 'input', 'autofocus': True, 'placeholder': 'Email'})
     )
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Contraseña'}))
     password2 = forms.CharField(
