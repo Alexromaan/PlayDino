@@ -187,7 +187,7 @@ def fetch(request):
             return render(request, 'mainpage/fetch.html', data)
         else:
             # en el caso de que la api no encuentre nada, mando este mensaje
-            data = {'name': "No se han encontrado resultados para: ", 'keyword': keyword}
+            data = {'message': "No se han encontrado resultados para: ", 'keyword': keyword}
             return render(request, 'mainpage/fetch.html', data)
     # este return es para cuando el request:method = GET, va sin parametros
     return render(request, 'mainpage/fetch.html')
