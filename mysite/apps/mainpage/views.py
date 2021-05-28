@@ -92,6 +92,7 @@ def delete_serie(request, pk):
     serie = Series.objects.get(id=pk)
     if request.method == 'POST':
         serie.delete()
+        messages.success(request, "Eliminado con éxito")
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/delete.html', {'serie': serie})
 
@@ -117,6 +118,7 @@ def edit_serie(request, pk):
                 image=serie.image
             )
             nueva_serie.save()
+            messages.success(request, "Serie modificada con éxito.")
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/edit_serie.html', data)
 
@@ -126,6 +128,7 @@ def delete_film(request, pk):
     film = Films.objects.get(id=pk)
     if request.method == 'POST':
         film.delete()
+        messages.success(request,"Eliminado con éxito")
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/delete.html', {'film': film})
 
@@ -150,6 +153,7 @@ def edit_film(request, pk):
                 image=film.image,
             )
             nueva_peli.save()
+            messages.success(request, 'Pelicula modificada con éxito')
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/edit_film.html', data)
 
