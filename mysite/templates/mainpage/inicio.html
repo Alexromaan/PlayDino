@@ -19,13 +19,9 @@
         <br/>
             <div class="column">
                 <h1>Bienvenido {{ user }}</h1>
-                <hr style="width: 80%; margin-left: 10% !important; "/>
-                <div class="instrucciones">
-                    <strong class="pasos">Te haré una breve introducción:</strong><br/>
-                    <strong class="pasos">1. En el apartado "Perfil" puedes modificar tus datos</strong><br/>
-                    <strong class="pasos">2. En el apatado "Buscar" podrás encontrar casi cualquier serie o pelicula para añadir a esta página</strong><br/>
-                    <strong class="pasos">3. Si hay algo que no encuentras, prueba a añadirlo tú mismo desde "Añadir Contenido"</strong>
-                </div>
+                <h2 style="text-align: center">
+                    <strong style="color: #FFFFFF">A medida que añadas contenido irá apareciendo en esta página</strong>
+                </h2>
             </div>
         </section>
 
@@ -90,7 +86,7 @@
       <div class="modal-content">
             <div class="modal-card">
                 <header class="modal-card-head" style="background-color: #00d1b2">
-                    <img alt="logo" src="/static/media/LogoAleAPrisa.png" height="60px" style="height: 60px !important">
+                    <img alt="logo" src="/static/media/LogoAleAPrisa.png" style="height: 60px !important;">
                     <h1 class="modal-card-title" style="padding-left: 2%"><strong style="color: white">
                         TUS NOTAS</strong>
                     </h1>
@@ -106,7 +102,7 @@
                                 <div class="label"></div>
                                 <label for="id_nota"><input name="id_nota" id="id_nota" style="display: none"></label>
                                 <label for="type_nota"><input name="type_nota" id="type_nota" style="display: none"></label>
-                                <textarea class="textarea add_comment_field" id="nota_text" name="nota_text"></textarea>
+                                <label for="nota_text"></label><textarea class="textarea add_comment_field" id="nota_text" name="nota_text"></textarea>
                             </div>
                         </div>
 

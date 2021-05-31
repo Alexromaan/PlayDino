@@ -16,7 +16,7 @@ urlpatterns = [
     # rutas de las peliculas
     path('delete_film/<int:pk>', views.delete_film, name='eliminar pelicula'),
     path('edit_film/<int:pk>', views.edit_film, name='editar pelicula'),
-    #rutas del perfil
+    # rutas del perfil
     path('perfil/', views.perfil, name='perfil'),
     path('cambiar_user/', views.change_username, name='cambiar user'),
     path('cambiar_password/', views.change_password, name='update password'),

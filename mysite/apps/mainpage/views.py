@@ -1,4 +1,3 @@
-from django import forms
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -33,10 +32,10 @@ def perfil(request):
     password_form = PasswordChangeForm(request.user)
     if image.exists():
         ctx = {
-        'usuario': usuario,
-        'image': Image.objects.get(user=usuario),
-        'form': user_form,
-        'password_form': password_form
+            'usuario': usuario,
+            'image': Image.objects.get(user=usuario),
+            'form': user_form,
+            'password_form': password_form
         }
     else:
         ctx = {
@@ -128,7 +127,7 @@ def delete_film(request, pk):
     film = Films.objects.get(id=pk)
     if request.method == 'POST':
         film.delete()
-        messages.success(request,"Eliminado con éxito")
+        messages.success(request, "Eliminado con éxito")
         return redirect(to='mainpage:inicio')
     return render(request, 'mainpage/delete.html', {'film': film})
 
@@ -261,7 +260,7 @@ def change_username(request):
             user.save()
             messages.success(request, 'Nombre de usuario actualizado con éxito')
         else:
-            messages.error(request,'El nombre de usuario ya está en uso.')
+            messages.error(request, 'El nombre de usuario ya está en uso.')
     return redirect(to='mainpage:perfil')
 
 
@@ -298,5 +297,5 @@ def set_image(request):
                 )
                 image.save()
         else:
-            messages.error(request,'Imagen no válida.')
+            messages.error(request, 'Imagen no válida.')
     return redirect(to='mainpage:perfil')
