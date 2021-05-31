@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="arrgelados todos los warning de codigo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/mainpage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="f443dfd1-d5f9-4f2b-9c98-9e6228a00544" name="Default Changelist" comment="arrgelados todos los warning de codigo" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -118,6 +114,7 @@
       <workItem from="1622056485663" duration="977000" />
       <workItem from="1622061182121" duration="1673000" />
       <workItem from="1622114669204" duration="2781000" />
+      <workItem from="1622451291793" duration="7525000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>
