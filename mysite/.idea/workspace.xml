@@ -44,11 +44,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/media" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/media" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/media" />
       <recent name="$PROJECT_DIR$/static/" />
@@ -116,6 +120,9 @@
       <workItem from="1622114669204" duration="2781000" />
       <workItem from="1622451291793" duration="14912000" />
       <workItem from="1622469577254" duration="1554000" />
+      <workItem from="1622484683475" duration="2685000" />
+      <workItem from="1622497130727" duration="553000" />
+      <workItem from="1622497893959" duration="290000" />
     </task>
     <task id="LOCAL-00001" summary="css">
       <created>1620850879366</created>
