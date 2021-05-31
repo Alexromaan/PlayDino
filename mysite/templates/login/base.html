@@ -8,6 +8,7 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
     <script src="{% static 'js/Navbar.js' %}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 {% block heading %}
@@ -18,8 +19,9 @@
 <body>
 <nav class="navbar">
     <div class="navbar-brand">
-        <a href="{% url 'mainpage:inicio'%}" style="margin: 5px !important;">
-            <img alt="logo" src="http://127.0.0.1:8000/static/media/LogoAleAPrisa.png" height="60px" style="height: 60px !important">
+        <a href="{% url 'mainpage:inicio'%}" style="margin: 5px !important; tec">
+            <img alt="logo" src="/static/media/LogoAleAPrisa.png" height="60px" style="height: 60px !important">
+            <img alt="logo" src="/static/media/playdino.png" height="50px" style="height: 50px !important">
         </a>
         <div class="navbar-burger burger" data-target="nav-data">
             <span></span>
@@ -51,13 +53,38 @@
 {% endblock %}
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-    </p>
-  </div>
+    <div class="columns" style="width: 90%; margin:0 5% 0">
+      <div class="column">
+            <img src="/static/media/LogoAleAPrisa.png" alt="LOGO" height="150px" style="height: 150px !important">
+            <img alt="logo" src="/static/media/playdino.png" style="width: 224px !important">
+          <p></p>
+      </div>
+      <div class="column">
+          <h6 class="is-size-6"><strong>DOCUMENTACIÓN</strong></h6>
+          <p><a href="https://bulma.io" target="_blank"><i class="fas fa-file-code"></i>&nbsp;Bulma</a></p>
+          <p><a href="https://github.com" target="_blank"><i class="fab fa-github"></i>&nbsp;Github</a></p>
+          <p><a href="https://djangoproject.com" target="_blank"><i class="fab fa-python"></i>&nbsp;Django</a></p>
+          <p><a href="https://fontawesome.com" target="_blank"><i class="fas fa-flag"></i>&nbsp;Font Awesome 5</a></p>
+          <p><a href=""><i class="fas fa-file-pdf" target="_blank"></i>&nbsp;Manual de usuario</a></p>
+      </div>
+      <div class="column">
+          <h6 class="is-size-6"><strong>¿DÓNDE PUEDO VER MIS SERIES?</strong></h6>
+          <div class="columns">
+              <div class="column">
+                  <p><a href="https://hbo.com" target="_blank" style="color: #0008a3">&nbsp;HBO</a></p>
+                  <p><a href="https://primevideo.com" target="_blank" style="color:#003ca3">&nbsp;Prime Video</a></p>
+                  <p><a href="https://disneyplus.com" target="_blank" style="color:#006aa3">&nbsp;Disney+</a></p>
+                  <p><a href="https://ver.movistarplus.es/" target="_blank" style="color: #87d9fa">&nbsp;Movistar+</a></p>
+              </div>
+              <div class="column">
+                  <p><a href="https://rakuten.es" target="_blank" style="color: #8a0000">&nbsp;Rakuten TV</a></p>
+                  <p><a href="https://netflix.com" target="_blank" style="color: red">&nbsp;Netflix</a>
+                  <p><a href="https://tv.apple.com" target="_blank" style="color:orangered">&nbsp;Apple TV</a></p>
+                  </p><p><a href="https://crunchyroll.com" target="_blank" style="color: orange">&nbsp;Crunchyroll</a></p>
+              </div>
+          </div>
+      </div>
+    </div>
 </footer>
 
 </body>

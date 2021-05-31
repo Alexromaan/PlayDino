@@ -13,6 +13,16 @@ body {
 body > footer {
     margin-top: auto;
 }
+
+footer .columns .column a{
+	color: #363636;
+}
+
+footer .columns .column p{
+	margin-top: 10px !important;
+
+}
+
 /* Container */
 .container {
 	min-width: 100%;
